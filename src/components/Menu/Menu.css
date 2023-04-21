@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,600&display=swap');
+
+/* 
+    MENU
+*/
+
+
+.rola {
+  display: flex;
+}
+
+.outlet {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #fff; */
+}
+
+.menu {
+    font-family: 'Poppins', sans-serif;
+    width: 4rem;
+    min-width: 4rem;
+    min-height: 100vh;
+    max-height: 100vh;
+    position: relative;
+    display: flex;
+    transition: all .3s;
+    flex-direction: column;
+}
+
+
+.menu-fixed {
+  width: 4rem;
+  height: 100vh;
+  position: fixed;
+  transition: all .3s;
+}
+
+.menu__dc-fixed {
+  width: 16rem;
+}
+
+
+
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  transition: all .6s;
+  overflow: hidden;
+}
+
+.menu__dc {
+    width: 16rem;
+    position: relative;
+}
+
+.list {
+    width: 100%;
+    height: 100vh;
+    /* background-color: #F97300; */
+    background-color: #0E3047;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.list li {
+    width: 100%;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: 0.3px;
+    margin: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.list li .icon-enterprise {
+    margin-left: 1rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.list li .link-name {
+    text-decoration: none;
+    margin-left: 1.5rem;
+}
+
+.list li .links {
+    padding: 5px 0 5px 0;
+    display: flex;
+    align-items: center;
+    transition: all .3s;
+    text-decoration: none;
+    color: #000;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
+}
+
+
+/* 
+    HAMBURGUESA
+*/
+
+.bars__menu {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 5%;
+  }
+  
+
+  .activeBars__menu {
+    left: 90%;
+    top: 5%;
+  }
+  
+  .bars__menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    margin-top: 6px;
+    transition: all 300ms;
+    transform-origin: 0px 100%;
+  }
+  
+  .activeLine1__bars-menu {
+    transform: rotate(45deg) translate(-2px, 1px);
+  }
+  
+  .activeLine2__bars-menu {
+    opacity: 0;
+    margin-left: -30px;
+  }
+  
+  .activeLine3__bars-menu {
+    transform: rotate(-45deg) translate(-4px, 2px);
+  }
+
+  
+/* 
+  BUTTONS
+*/
+
+.confirmButton {
+   background: #28A745;
+}
+
+
+
+@media screen and (max-width:760px) {
+  .rola {
+    flex-direction: column;
+    /* flex-grow: 2; */
+    height: 100vh !important;
+  }
+
+  .bars__menu {
+   display: none;
+  }
+
+  .menu {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    min-width: 100%;
+    height: 4rem;
+    min-height: 4rem;
+    /* background-color: red; */
+  }
+
+  .menu-fixed {
+   /* display: none; */
+    background-color: red;
+    min-width: none;
+    width: 100%;
+    height: 4rem;
+  }
+
+  .nav {
+    width: 100%;
+  height: 100%;
+  }
+
+  .list {
+    flex-direction: row !important;
+    height: 100%;
+    width: 100%;
+  }
+
+  .list li {
+    width: 1rem;
+  }
+
+  .links {
+    border-left: none !important;
+    width: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icon-enterprise {
+    margin: 0px !important;
+  }
+
+  .link-name {
+    display: none;
+  }
+ }
+
+
+ @media screen and (max-width:1450px) {
+  .rola {
+    flex-direction: column;
+    /* flex-grow: 2; */
+    height: 100vh !important;
+  }
+
+  .bars__menu {
+   display: none;
+  }
+
+  .menu {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    min-width: 100%;
+    height: 4rem;
+    min-height: 4rem;
+    /* background-color: red; */
+  }
+
+  .menu-fixed {
+   /* display: none; */
+    background-color: red;
+    min-width: none;
+    width: 100%;
+    height: 4rem;
+  }
+
+  .nav {
+    width: 100%;
+  height: 100%;
+  }
+
+  .list {
+    flex-direction: row !important;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .list li {
+    width: 1rem;
+  }
+
+  .links {
+    border-left: none !important;
+    width: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icon-enterprise {
+    margin: 0px !important;
+  }
+
+  .link-name {
+    display: none;
+  }
+ }

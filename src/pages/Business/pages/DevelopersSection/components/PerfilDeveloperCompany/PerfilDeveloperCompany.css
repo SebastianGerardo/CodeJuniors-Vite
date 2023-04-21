@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* *************************************** */
+/* ************* ESTILOS LETRA *********** */
+/* *************************************** */
+.name-dev{
+    font-size: 1.7em;
+    margin-bottom: 5px;
+}
+.job-dev{
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+/* p{
+    margin-bottom: 10px;
+} */
+
+.subtitle{
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.link{
+    color: #F97300;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+/* ion-icon{
+    font-size: 20px;
+} */
+
+/* *************************************** */
+/* ********** PADDING AND MARGIN ********* */
+/* *************************************** */
+.col{
+    width: 100%;
+}
+
+.pr{
+    padding-right: 15px;
+}
+
+.mb{
+    margin-bottom: 15px;
+}
+.mt{
+    margin-top: 15px;
+}
+.btn-edit{
+    width: 100%;
+    background-color: #F97300;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    color: #fff;
+    font-weight: bold;
+}
+.btn-edit:hover{
+    background-color: #eb974f;
+}
+.btn-edit:active{
+    background-color: #c25b02;
+}
+
+/* *************************************** */
+/* *************************************** */
+/* *************************************** */
+
+.container2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-dev2{
+    width: 100%;
+    max-width: 1200px;
+    height: 220px;
+    position: relative;
+    border-radius: 8px;
+
+    background-image: url("https://timelinecovers.pro/facebook-cover/download/web-developer-coding-on-screen-hex2rgb-facebook-cover.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.photo-perfil{
+    position: absolute;
+    left: 40px;
+    bottom: -75px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.data-dev{
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 21px;
+}
+
+.card{
+    background-color: #133d58;
+    /* border: 1px solid #F8F5E4; */
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-dev{
+    margin-top: 90px;
+}
+
+
+
+/* *************************************** */
+/* *********** CARD INSTITUTION ********** */
+/* *************************************** */
+.institution{
+    display: flex;
+    justify-content: space-between;
+    background-color: #0E3047;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15PX;
+}
+.institution-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.institution-text p{
+    margin: 0;
+}
+
+/* *************************************** */
+/* *********** CARD BUSINESS ********** */
+/* *************************************** */
+.business{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #10828C;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.business p{
+    margin: 0;
+}
+.business-info{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 15px;
+}
+.business-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.photo-business{
+    border-radius: 8px;
+}
+
+
+.skills-icon{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 40px;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+.img-skill{
+    width: 50px;
+}

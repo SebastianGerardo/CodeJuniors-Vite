@@ -1,0 +1,153 @@
+
+
+/*
+    FUENTES
+*/
+.p-descr{
+    margin: 0;
+}
+.h2-cargo{
+    font-size: 20px;
+}
+
+
+/*
+    SECCIONES
+*/
+.puestos_trabajos{
+    width: 100%;
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.banner{
+    margin-bottom: 40px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #10828c63;
+    padding: 20px;
+    border-radius: 8px;
+}
+.banner-50{
+    width: 50%;
+    text-align: center;
+    font-size: 2em;
+    color: #3f3d56;
+}
+.banner-img{
+    width: 300px;
+}
+
+.search_job{
+    margin-bottom: 40px;
+}
+.search_job_-input{
+    width: 50%;
+    border-radius: 8px;
+    border: none;
+    padding: 15px 17px;
+    background-color: #ecf1f4;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.jobs{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 15px;
+    cursor: pointer;
+}
+.job{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ecf1f4;
+    padding: 15px;
+    border-radius: 8px;
+}
+.job:hover {
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.75);
+  }
+.job_info{
+    display: flex;
+}
+.job_descr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.job_tec{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.img-job{
+    margin-right: 15px;
+    border-radius: 8px;
+}
+
+@media screen and (min-width: 1180px) and (max-width:1290px){
+    .banner{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .jobs{
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    .search_job{
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+}
+@media screen and (min-width: 640px) and (max-width:1180px){
+    .banner{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .jobs{
+        grid-template-columns: auto;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    .search_job{
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    .search_job_-input{
+        width: 100%;
+    }
+}
+@media screen and (max-width:640px){
+    .banner{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .jobs{
+        grid-template-columns: auto;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    .search_job{
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    .banner{
+        flex-direction: column;
+    }
+    .banner-50{
+        width: 100%;
+    }
+    .search_job_-input{
+        width: 100%;
+    }
+}

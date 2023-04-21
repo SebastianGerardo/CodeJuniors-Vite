@@ -1,0 +1,77 @@
+.modal-editar{
+    position: absolute;
+    width: 70%;
+    max-width: 800px;
+    min-width: 350px;
+    background-color: #fff;
+    border-radius: 8px;
+    z-index: 1;
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    cursor: default;
+    padding: 20px;
+}
+
+.modal-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.col-2{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.input-edit{
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ecf1f4;
+}
+
+
+.btn{
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ffffff00;
+}
+.btn-canelar{
+    border: 1px solid #B3005E;
+    color: #B3005E;
+}
+.btn-canelar:hover{
+    font-weight: bold;
+}
+.btn-canelar:active{
+    background-color: #B3005E;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.btn-actualizar{
+    background-color: #3F979B;
+    color: #fff;
+}
+.btn-actualizar:hover{
+    background-color: #3f969bdf;
+}
+.btn-actualizar:active{
+    background-color: #348286;
+}
+.mr-20px{
+    margin-right: 20px;
+}
+
+@media screen and (max-width:880px){
+    .col-2{
+        grid-template-columns: auto;
+    }
+    .modal-editar{
+        height: 450px;
+        overflow: auto;
+    }
+}

@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,600&display=swap");
+.company-dev-users {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+.company-dev-users_box {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.company-dev-users__cards {
+  cursor: pointer;
+  box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.75);
+  width: 16.5rem;
+  height: 19rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+
+/* 
+    CARD HEADER
+*/
+
+.users-cards-header {
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.users-cards-header__banner {
+  width: 100%;
+  min-height: 5rem;
+  max-height: 5rem;
+  border-radius: 12px 12px 0 0;
+}
+
+.users-cards-header__banner > img {
+  border-radius: 12px 12px 0 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.users-cards-header__perfil {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 100%;
+  left: 50%;
+}
+
+.users-cards-header__perfil > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 
+    USER MAIN
+*/
+
+.users-cards-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.users-card-charge {
+  margin: 0;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 700;
+  color: #aca4a4;
+  letter-spacing: .2px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+
+.users-cards-main > h1 {
+  color: #000;
+  margin: 0;
+  width: 90%;
+  word-wrap: break-word;
+  text-align: center;
+  display: inline-block;
+  font-size: 17px;
+  text-transform: capitalize;
+}
+
+.users-cards-main > div {
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.icon-tc {
+  width: 20px;
+}
+
+.tecnologies-user {
+  margin-top: 1rem;
+}
+
+/* 
+    Modal
+*/
+
+.company-dev-users-modal {
+    transition: all .6s;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.activeCompany-dev-users-modal {
+    display: block;
+}
+
+.dev-users_modal {
+    transition: all .2s;
+    padding: 5px;
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 70rem;
+    max-width: 70rem;
+    height: 40rem;
+    max-height: 40rem;
+    background-color: #fff;
+    margin: 0 auto;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: -35rem;
+    left: 50%;
+    z-index: 2;
+    border-radius: 5px;
+}
+
+.activeDev-users_modal {
+  top: 50%;
+}
+
+.company-developers {
+  overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+}
+
+.activecompany-developers {
+  overflow-y: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.background-modal {
+    opacity: 0;
+    background-color: rgb(0, 0, 0,0.5);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transition: all .3s;
+    display: none;
+    z-index: 1;
+}
+
+@media screen and (max-width:1450px) {
+  .dev-users_modal {
+    width: 90%;
+    padding: 0;
+  }
+  .company-dev-users {
+    margin-bottom: 5rem;
+  }
+}
+
+.activeBackground-modal {
+    opacity: 1;
+    display: block;
+}
+
+.dev-users_modal::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.dev-users_modal::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.dev-users_modal::-webkit-scrollbar-button:increment,
+.contenedor::-webkit-scrollbar-button {
+  display: none;
+}
+
+.dev-users_modal::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.dev-users_modal::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.dev-users_modal::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+
+@media screen and (max-width:760px) {
+  .company-dev-users_box {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+
+
+@media screen and (max-width: 1450px) {
+  .company-dev-users_box {
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    align-items: center;
+    gap: .3rem;
+  }
+
+  .company-dev-users {
+    height: auto;
+    display: block;
+  }
+}

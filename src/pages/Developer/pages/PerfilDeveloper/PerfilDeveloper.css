@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body{
+    box-sizing: border-box;
+}
+
+/* *************************************** */
+/* ************* ESTILOS LETRA *********** */
+/* *************************************** */
+.name-dev{
+    font-size: 1.7em;
+    margin-bottom: 5px;
+}
+.job-dev{
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+.p{
+    margin-bottom: 10px;
+}
+.subtitle{
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+.link{
+    color: #F97300;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+ion-icon{
+    font-size: 20px;
+    z-index: 1;
+}
+
+/* *************************************** */
+/* ********** PADDING AND MARGIN ********* */
+/* *************************************** */
+.col{
+    width: 100%;
+}
+.pr{
+    padding-right: 15px;
+}
+.mb{
+    margin-bottom: 15px;
+}
+.mt{
+    margin-top: 15px;
+}
+.btn-edit{
+    width: 100%;
+    background-color: #F97300;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    color: #fff;
+    font-weight: bold;
+}
+.btn-edit:hover{
+    background-color: #eb974f;
+}
+.btn-edit:active{
+    background-color: #c25b02;
+}
+
+/* *************************************** */
+/* *************************************** */
+/* *************************************** */
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #18191a;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.header-dev{
+    width: 100%;
+    max-width: 1200px;
+    height: 220px;
+    position: relative;
+    border-radius: 8px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #93BFCF;
+    /*background-image: url("https://timelinecovers.pro/facebook-cover/download/web-developer-coding-on-screen-hex2rgb-facebook-cover.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;*/
+}
+.banner-h2{
+    width: 40%;
+}
+.photo-perfil{
+    position: absolute;
+    left: 40px;
+    bottom: -75px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.data-dev{
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: calc(50% - 11px) calc(50% - 11px);
+    gap: 22px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    background-color: #ecf1f4;
+    /* background-color: #133d58; */
+    /* border: 1px solid #F8F5E4; */
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 50px);
+}
+
+.info-dev{
+    margin-top: 20px;
+}
+
+
+
+/* *************************************** */
+/* *********** CARD INSTITUTION ********** */
+/* *************************************** */
+.institution{
+    display: flex;
+    justify-content: space-between;
+    background-color: #BDCDD6;
+
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15PX;
+}
+.institution-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.institution-text p{
+    margin: 0;
+}
+
+/* *************************************** */
+/* *********** CARD BUSINESS ********** */
+/* *************************************** */
+.business{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #BDCDD6;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.business p{
+    margin: 0;
+}
+.business-info{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 15px;
+}
+.business-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.photo-business{
+    border-radius: 8px;
+}
+
+
+.skills-icon{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 40px;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+.img-skill{
+    width: 50px;
+}
+
+@media screen and (min-width: 1010px) and (max-width:1080px){
+  
+}
+@media screen and (min-width: 890px) and (max-width:1300px){
+  
+}
+@media screen and (max-width:890px){
+    .data-dev{
+        grid-template-columns: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .skills{
+        margin-bottom: 70px;
+    }
+    .col{
+        width:calc(100% - 40px);
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+    .photo-perfil{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -170px;
+    }
+    .info-dev{
+        margin-top: 170px;
+    }
+    .banner-h2{
+        font-size: 17px;
+    }
+}
