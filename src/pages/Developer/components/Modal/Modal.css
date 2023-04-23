@@ -12,6 +12,15 @@
     margin-right: 15px;
     cursor: default;
     overflow: hidden;
+    animation: slide-down-modal ease 1s;
+}
+@keyframes slide-down-modal {
+    0% {
+      transform: translateY(-150%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 .seperador{
     border-right: 1px solid #0000002e;
@@ -87,7 +96,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 2;
     animation: slide-down ease 6s;
 }
 @keyframes slide-down {
