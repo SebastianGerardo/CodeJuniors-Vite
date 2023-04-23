@@ -1,7 +1,6 @@
-'use client'
 import { useEffect, useState } from "react";
+import './Propuestas.css';
 import Modal from "../Modal/Modal";
-import './Propuesta.css';
 //import ModalRedes from '../../CompanyPage/Modal/ModalRedes';
 
 const Propuesta = (props) => {

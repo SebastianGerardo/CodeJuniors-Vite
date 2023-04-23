@@ -1,7 +1,8 @@
-import './PuestosTrabajos.css'
+import './BuscarTrabajos.css'
 import {ApiEmpresa} from '../../../../helpers/ApiUser'
 import imagen_team from '../../../../assets/Developer/puesto_trabajos-team.svg';
 import { useEffect, useState } from 'react';
+import Propuesta from '../../components/Propuestas/Propuestas';
 // import Propuesta from '../../../../components/DevelopersPage/PropuestasTrabajos/Propuesta';
 /*import { DataComDev } from '../../../services/Company/DataComDevs';*/
 
@@ -18,6 +19,7 @@ const PuestosTrabajos = () => {
                 <input type="text" className='search_job_-input' placeholder='Buscar Empleo' />
             </div>
             {/* <Propuesta business={business} /> */}
+            <Propuesta business={business} />
         </div>
     )
 }

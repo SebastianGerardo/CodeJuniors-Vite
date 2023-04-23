@@ -1,60 +1,70 @@
-'use client'
 import { useEffect, useState } from 'react';
 import './Modal.css';
-import share from '../../../public/Developer/share.svg'
-import modalidad from '../../../public/Developer/modalidad.svg'
-import jornada from '../../../public/Developer/jornada.svg'
-import saladio from '../../../public/Developer/salario.svg'
-import publicado from '../../../public/Developer/publicado.svg'
+import share from '../../../../assets/Developer/share.svg'
+import modalidad from '../../../../assets/Developer/modalidad.svg'
+import jornada from '../../../../assets/Developer/jornada.svg'
+import saladio from '../../../../assets/Developer/salario.svg'
+import publicado from '../../../../assets/Developer/publicado.svg'
+import cicleTopRight from '../../../../assets/Developer/cicle-top-right.svg'
+import cicleBottomRight from '../../../../assets/Developer/cicle-bottom-right.svg'
+import cicleBottomLeft from '../../../../assets/Developer/cicle-bottom-left.svg'
+import close from '../../../../assets/Developer/close.svg'
+import check from '../../../../assets/Developer/check.svg'
 
 const Modal = () => {
 
-    const [imagen, setImagen] = useState({
-        imagenWeb: ''
-    })
+    const [showhidden, setShowhidden] = useState('hidden')
+
+    const clickAlert = () => {
+        setShowhidden('flex')
+        setTimeout(()=>setShowhidden('hidden'),6000)
+    }
 
     useEffect(()=>{
-        setImagen({
-            imagenWeb: share.src,
-            modalidad: modalidad.src,
-            jornada: jornada.src,
-            saladio: saladio.src,
-            publicado: publicado.src,
-            fotoEmpresa: 'https://imgbum.jobscdn.com/portal/img/empresas/11/static/logoMainPic_10214356_bum_v68951268.jpg'
-        })
+        
     },[])
 
     return (
         <div className="modal-container">
+            <img src={cicleTopRight} alt="" className='cicle-TopRight' />
+            <img src={cicleBottomRight} alt="" className='cicle-BottomRight' />
+            <img src={cicleBottomLeft} alt="" className='cicle-BottomLeft' />
+            <div className={`${showhidden} items-center p-5 bg-green-400 none rounded-lg justify-between alert`}>
+                <div className='flex'>
+                    <img src={check} alt="" width={14} className='mr-2' />
+                    <p>Se postulo a la empresa <b>Zoluxiones</b>, espere la respuesta!</p>
+                </div>
+                {/* <img src={close} alt="" width={14} className='transicion-escala' onClick={()=>setShowhidden('hidden')} /> */}
+            </div>
             <div className='flex justify-between mb-5'>
                 <div className='flex'>
-                    <img src={imagen.fotoEmpresa} alt="" className='mr-4' width={58} />
+                    <img src="https://imgbum.jobscdn.com/portal/img/empresas/11/static/logoMainPic_10214356_bum_v68951268.jpg" alt="" className='mr-4' width={58} />
                     <div className='justify-items-start'>
                         <h2 className='font-bold text-xl'>Desarrollador Backend con Python</h2>
                         <p className='font-light'>Zoluxiones</p>
                     </div>
                 </div>
                 <div className='flex items-center'>
-                    <img src={imagen.imagenWeb} alt="" className='w-5 mr-5 transicion-escala' />
-                    <button className='btn-postular transicion-escala'>Postular</button>
+                    <img src={share} alt="" className='w-5 mr-5 transicion-escala' />
+                    <button className='btn-postular transicion-escala' onClick={()=>clickAlert()}>Postular</button>
                 </div>
             </div>
             <hr />
             <div className='flex justify-between mt-4 mb-4'>
                 <div className='flex'>
-                    <img src={imagen.modalidad} alt="" className='mr-2' />
+                    <img src={modalidad} alt="" className='mr-2' />
                     <p>Remoto</p>
                 </div>
                 <div className='flex'>
-                    <img src={imagen.jornada} alt="" className='mr-2' />
+                    <img src={jornada} alt="" className='mr-2' />
                     <p>Full Time</p>
                 </div>
                 <div className='flex'>
-                    <img src={imagen.saladio} alt="" className='mr-2' />
+                    <img src={saladio} alt="" className='mr-2' />
                     <p>$2200</p>
                 </div>
                 <div className='flex'>
-                    <img src={imagen.publicado} alt="" className='mr-2' />
+                    <img src={publicado} alt="" className='mr-2' />
                     <p>Publicado hace 12h</p>
                 </div>
             </div>

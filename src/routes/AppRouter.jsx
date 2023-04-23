@@ -5,7 +5,7 @@ import Business from "../pages/Business/Business"
 import DevelopersSection from "../pages/Business/pages/DevelopersSection/DevelopersSection"
 import PerfilBusiness from "../pages/Business/pages/PerfilBusiness/PerfilBusiness"
 import Developer from "../pages/Developer/Developer"
-import PuestosTrabajos from "../pages/Developer/pages/PuestosTrabajos/PuestosTrabajos"
+import PuestosTrabajos from "../pages/Developer/pages/BuscarTrabajos/BuscarTrabajos"
 import Home from "../pages/Home/Home"
 
 const AppRouter = () => {
