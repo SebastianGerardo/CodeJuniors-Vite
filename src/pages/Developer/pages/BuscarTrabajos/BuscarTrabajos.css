@@ -29,7 +29,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #10828c63;
+    background-color: #a2ced2;
     padding: 20px;
     border-radius: 8px;
 }
@@ -54,6 +54,14 @@
     background-color: #ecf1f4;
     font-size: 1.2em;
     font-weight: bold;
+}
+.search-filter{
+    background-color: #F97300;
+    color: #fff;
+    display: inline;
+    padding: 5px 8px;
+    margin-right: 8px;
+    border-radius: 8px;
 }
 
 .jobs{
@@ -95,6 +103,9 @@
     border-radius: 8px;
 }
 
+  /* ************************************* */
+
+
 @media screen and (min-width: 1180px) and (max-width:1290px){
     .banner{
         margin-left: 15px;
@@ -103,6 +114,7 @@
     .jobs{
         margin-right: 15px;
         margin-left: 15px;
+        padding-bottom: 80px;
     }
     .search_job{
         margin-right: 15px;
@@ -118,6 +130,7 @@
         grid-template-columns: auto;
         margin-right: 15px;
         margin-left: 15px;
+        padding-bottom: 80px;
     }
     .search_job{
         margin-right: 15px;
@@ -136,6 +149,7 @@
         grid-template-columns: auto;
         margin-right: 15px;
         margin-left: 15px;
+        padding-bottom: 80px;
     }
     .search_job{
         margin-right: 15px;

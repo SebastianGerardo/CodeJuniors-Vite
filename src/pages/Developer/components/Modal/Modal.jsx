@@ -5,9 +5,9 @@ import modalidad from '../../../../assets/Developer/modalidad.svg'
 import jornada from '../../../../assets/Developer/jornada.svg'
 import saladio from '../../../../assets/Developer/salario.svg'
 import publicado from '../../../../assets/Developer/publicado.svg'
-import cicleTopRight from '../../../../assets/Developer/cicle-top-right.svg'
-import cicleBottomRight from '../../../../assets/Developer/cicle-bottom-right.svg'
-import cicleBottomLeft from '../../../../assets/Developer/cicle-bottom-left.svg'
+import circleTopRight from '../../../../assets/Developer/circle-top-right.svg'
+import circleBottomRight from '../../../../assets/Developer/circle-bottom-right.svg'
+import circleBottomLeft from '../../../../assets/Developer/circle-bottom-left.svg'
 import close from '../../../../assets/Developer/close.svg'
 import check from '../../../../assets/Developer/check.svg'
 
@@ -26,9 +26,9 @@ const Modal = () => {
 
     return (
         <div className="modal-container">
-            <img src={cicleTopRight} alt="" className='cicle-TopRight' />
-            <img src={cicleBottomRight} alt="" className='cicle-BottomRight' />
-            <img src={cicleBottomLeft} alt="" className='cicle-BottomLeft' />
+            <img src={circleTopRight} alt="" className='cicle-TopRight' />
+            <img src={circleBottomRight} alt="" className='cicle-BottomRight' />
+            <img src={circleBottomLeft} alt="" className='cicle-BottomLeft' />
             <div className={`${showhidden} items-center p-5 bg-green-400 none rounded-lg justify-between alert`}>
                 <div className='flex'>
                     <img src={check} alt="" width={14} className='mr-2' />

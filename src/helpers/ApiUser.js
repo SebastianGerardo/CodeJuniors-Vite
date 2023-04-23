@@ -63,6 +63,198 @@ export const ApiEmpresa = [
       },
     ],
   },
+  {
+    logo_empresa:
+      "https://companieslogo.com/img/orig/GOOG-0ed88f7c.png?t=1633218227",
+    nombre_empresa: "Google",
+    puestos_trabajos: [
+      {
+        cargo_buscado: "Desarrollador Backend",
+        nivel_dev: "Junior",
+        tipo_trabajo: "Presencial",
+        tiempo_trabajo: "Full Time",
+        sueldo_trabajo: "$2200",
+        tecnologias: [
+          {
+            name: "html",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+          },
+          {
+            name: "css",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732190.png",
+          },
+          {
+            name: "nodeJs",
+            icon: "https://cdn-icons-png.flaticon.com/512/5968/5968322.png",
+          },
+          {
+            name: "react",
+            icon: "https://cdn-icons-png.flaticon.com/512/1260/1260775.png",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    logo_empresa:
+      "https://companieslogo.com/img/orig/GOOG-0ed88f7c.png?t=1633218227",
+    nombre_empresa: "Google",
+    puestos_trabajos: [
+      {
+        cargo_buscado: "Desarrollador Backend",
+        nivel_dev: "Junior",
+        tipo_trabajo: "Presencial",
+        tiempo_trabajo: "Full Time",
+        sueldo_trabajo: "$2200",
+        tecnologias: [
+          {
+            name: "html",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+          },
+          {
+            name: "css",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732190.png",
+          },
+          {
+            name: "nodeJs",
+            icon: "https://cdn-icons-png.flaticon.com/512/5968/5968322.png",
+          },
+          {
+            name: "react",
+            icon: "https://cdn-icons-png.flaticon.com/512/1260/1260775.png",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    logo_empresa:
+      "https://companieslogo.com/img/orig/GOOG-0ed88f7c.png?t=1633218227",
+    nombre_empresa: "Google",
+    puestos_trabajos: [
+      {
+        cargo_buscado: "Desarrollador Backend",
+        nivel_dev: "Junior",
+        tipo_trabajo: "Presencial",
+        tiempo_trabajo: "Full Time",
+        sueldo_trabajo: "$2200",
+        tecnologias: [
+          {
+            name: "html",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+          },
+          {
+            name: "css",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732190.png",
+          },
+          {
+            name: "nodeJs",
+            icon: "https://cdn-icons-png.flaticon.com/512/5968/5968322.png",
+          },
+          {
+            name: "react",
+            icon: "https://cdn-icons-png.flaticon.com/512/1260/1260775.png",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    logo_empresa:
+      "https://companieslogo.com/img/orig/GOOG-0ed88f7c.png?t=1633218227",
+    nombre_empresa: "Google",
+    puestos_trabajos: [
+      {
+        cargo_buscado: "Desarrollador Backend",
+        nivel_dev: "Junior",
+        tipo_trabajo: "Presencial",
+        tiempo_trabajo: "Full Time",
+        sueldo_trabajo: "$2200",
+        tecnologias: [
+          {
+            name: "html",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+          },
+          {
+            name: "css",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732190.png",
+          },
+          {
+            name: "nodeJs",
+            icon: "https://cdn-icons-png.flaticon.com/512/5968/5968322.png",
+          },
+          {
+            name: "react",
+            icon: "https://cdn-icons-png.flaticon.com/512/1260/1260775.png",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    logo_empresa:
+      "https://companieslogo.com/img/orig/GOOG-0ed88f7c.png?t=1633218227",
+    nombre_empresa: "Google",
+    puestos_trabajos: [
+      {
+        cargo_buscado: "Desarrollador Backend",
+        nivel_dev: "Junior",
+        tipo_trabajo: "Presencial",
+        tiempo_trabajo: "Full Time",
+        sueldo_trabajo: "$2200",
+        tecnologias: [
+          {
+            name: "html",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+          },
+          {
+            name: "css",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732190.png",
+          },
+          {
+            name: "nodeJs",
+            icon: "https://cdn-icons-png.flaticon.com/512/5968/5968322.png",
+          },
+          {
+            name: "react",
+            icon: "https://cdn-icons-png.flaticon.com/512/1260/1260775.png",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    logo_empresa:
+      "https://companieslogo.com/img/orig/GOOG-0ed88f7c.png?t=1633218227",
+    nombre_empresa: "Google",
+    puestos_trabajos: [
+      {
+        cargo_buscado: "Desarrollador Backend",
+        nivel_dev: "Junior",
+        tipo_trabajo: "Presencial",
+        tiempo_trabajo: "Full Time",
+        sueldo_trabajo: "$2200",
+        tecnologias: [
+          {
+            name: "html",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+          },
+          {
+            name: "css",
+            icon: "https://cdn-icons-png.flaticon.com/512/732/732190.png",
+          },
+          {
+            name: "nodeJs",
+            icon: "https://cdn-icons-png.flaticon.com/512/5968/5968322.png",
+          },
+          {
+            name: "react",
+            icon: "https://cdn-icons-png.flaticon.com/512/1260/1260775.png",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const ApiUsuarioInfoEmpresa = 
