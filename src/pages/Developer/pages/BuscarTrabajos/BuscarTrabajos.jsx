@@ -6,13 +6,9 @@ import Propuesta from '../../components/Propuestas/Propuestas';
 import Search from '../../components/Search/Search';
 import close from '../../../../assets/Developer/close.svg'
 
-// import Propuesta from '../../../../components/DevelopersPage/PropuestasTrabajos/Propuesta';
-/*import { DataComDev } from '../../../services/Company/DataComDevs';*/
-
 const PuestosTrabajos = () => {
     const [ business, setBusiness ] = useState(ApiEmpresa);
 
-    
 // *******************************
     const [search,setSearch] = useState('')
     const [divSearch,setDivSearch] = useState([])
@@ -34,6 +30,8 @@ const PuestosTrabajos = () => {
         setBusiness(filtrarData)
         
     }
+    
+
 // *********************************
     
     return(
