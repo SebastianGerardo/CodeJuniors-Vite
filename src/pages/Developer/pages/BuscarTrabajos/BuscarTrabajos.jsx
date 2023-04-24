@@ -3,22 +3,38 @@ import {ApiEmpresa} from '../../../../helpers/ApiUser'
 import imagen_team from '../../../../assets/Developer/puesto_trabajos-team.svg';
 import { useEffect, useState } from 'react';
 import Propuesta from '../../components/Propuestas/Propuestas';
+import Search from '../../components/Search/Search';
+import close from '../../../../assets/Developer/close.svg'
+
 // import Propuesta from '../../../../components/DevelopersPage/PropuestasTrabajos/Propuesta';
 /*import { DataComDev } from '../../../services/Company/DataComDevs';*/
 
 const PuestosTrabajos = () => {
     const [ business, setBusiness ] = useState(ApiEmpresa);
 
-    const [search,setSearch] = useState([])
+    
+// *******************************
+    const [search,setSearch] = useState('')
+    const [divSearch,setDivSearch] = useState([])
 
     const addSearch = () => {
-        const divSeach = document.createElement('div')
-        divSeach.className = 'search-filter'
-        divSeach.innerHTML = search
-        const searchDiv = document.getElementById('search-div')
-        searchDiv.appendChild(divSeach)
-        const searchInput = document.getElementById('search-input')
+        if(search === '') return
+        setDivSearch([...divSearch, search])
+        const filtrarData = business.filter(
+            (i) =>
+            i.puestos_trabajos[0].cargo_buscado.includes(search) ||
+            i.puestos_trabajos[0].tipo_trabajo.includes(search) ||
+            i.puestos_trabajos[0].tiempo_trabajo.includes(search) ||
+            i.puestos_trabajos[0].nivel_dev.includes(search) ||
+            i.puestos_trabajos[0].sueldo_trabajo.includes(search) ||
+            i.puestos_trabajos[0].tecnologias[0].name.includes(search)
+        )
+        setSearch('')
+        console.log(filtrarData)
+        setBusiness(filtrarData)
+        
     }
+// *********************************
     
     return(
         <div className="puestos_trabajos">
@@ -26,12 +42,21 @@ const PuestosTrabajos = () => {
                 <img src={imagen_team} alt="" className='banner-img' />
                 <h1 className='banner-50'>Encuentra el empleo que se acomode mas a tus grandes habilidades</h1>
             </div>
+            
+
             <div className="search_job">
-                <input type="text" className='search_job_-input' placeholder='Buscar Empleo' id='search-input' onChange={(e)=>setSearch(e.target.value)} />
-                <button onClick={addSearch}>add</button>
-                <div id='search-div'></div>
+                <div className='mb-5'>
+                    <input type="text" className='search_job_-input' placeholder='Buscar Empleo' id='search-input' value={search} onChange={(e)=>setSearch(e.target.value)} />
+                    <button onClick={addSearch} className='btn-search transicion-escala'>Buscar</button>
+                </div>
+                <div id='search-div'>
+                    { divSearch.length > 0 && divSearch.map((s,i) => (
+                        <span key={i} className='search-filter'>{s}</span>
+                    ))}
+                </div>
             </div>
-            {/* <Propuesta business={business} /> */}
+            
+
             <Propuesta business={business} />
         </div>
     )

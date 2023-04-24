@@ -7,6 +7,7 @@ import PerfilBusiness from "../pages/Business/pages/PerfilBusiness/PerfilBusines
 import Developer from "../pages/Developer/Developer"
 import PuestosTrabajos from "../pages/Developer/pages/BuscarTrabajos/BuscarTrabajos"
 import Home from "../pages/Home/Home"
+import Perfildeveloper from "../pages/Developer/pages/PerfilDeveloper/PerfilDeveloper"
 
 const AppRouter = () => {
   return (
@@ -17,7 +18,7 @@ const AppRouter = () => {
         </Route>
         <Route path="*" element={<h1>404</h1>} />
         <Route path="/developer" element={<Developer />}>
-          <Route index element={<h1>Developer</h1>} />
+          <Route index element={<Perfildeveloper /> } />
           <Route path="puestos-trabajos" element={<PuestosTrabajos />} />
           <Route path="notifications" element={<NotificationData />}>
             <Route index element={<Gerardo/>}/>    

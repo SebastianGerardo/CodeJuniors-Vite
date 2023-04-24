@@ -1,4 +1,4 @@
-export const ApiDeveloper = [
+export const ApiDevelopers = [
     {
         "nombre": "Sebastian",
         "cargo": "Desarrollador Frontend",
@@ -774,5 +774,75 @@ export const ApiDeveloper = [
         "password": "123456",
         "apellido": "Tarazona",
         "id": "12"
+    }
+];
+
+export const ApiDeveloper = [
+    {
+        "nombre": "Sebastian",
+        "cargo": "Desarrollador Frontend",
+        "telefono": "924192366",
+        "correo": "sebastiangerardo27@gmail.com",
+        "biografia": "Hola!, mi nombre es Sebastian Gerardo. Soy desarrollador FrontEnd, y soy muy apasionado y dedicado a mi trabajo.",
+        "redes": [
+            {
+                "web": "logo-github",
+                "name": "SebastianGerardo",
+                "link": "https://github.com/SebastianGerardo"
+            },
+            {
+                "web": "globe-outline",
+                "name": "Mi Portafolio",
+                "link": "https://portfolio-tau-seven-83.vercel.app/"
+            },
+            {
+                "web": "logo-linkedin",
+                "name": "Sebastian Gerardo",
+                "link": "https://www.linkedin.com/in/sebastian-g27/"
+            }
+        ],
+        "educacion": [
+            {
+                "nombre_ins": "Pontificia Universidad Católica del Perú",
+                "carrera": "Ingenieria de Sistemas",
+                "logo_ins": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Seal_of_Pontifical_Catholic_University_of_Peru.svg/1200px-Seal_of_Pontifical_Catholic_University_of_Peru.svg.png",
+                "certificado": "https://marketplace.canva.com/EAFQNGff-B8/1/0/1600w/canva-certificado-de-reconocimiento-simple-azul-y-amarillo-jVqupEcSv7g.jpg"
+            }
+        ],
+        "experiencia": [
+            {
+                "name_biss": "Google",
+                "rang_fecha": "2022-2023",
+                "cargo": "Desarrollador Frontend",
+                "logo_biss": "https://i.postimg.cc/BQwYx82Y/GOOG.png"
+            }
+        ],
+        "tecnologia": [
+            {
+                "name": "html",
+                "icon": "https://cdn-icons-png.flaticon.com/512/732/732212.png"
+            },
+            {
+                "name": "css",
+                "icon": "https://cdn-icons-png.flaticon.com/512/732/732190.png"
+            },
+            {
+                "name": "javascript",
+                "icon": "https://cdn-icons-png.flaticon.com/512/5968/5968292.png"
+            },
+            {
+                "name": "react",
+                "icon": "https://cdn-icons-png.flaticon.com/512/1260/1260775.png"
+            },
+            {
+                "name": "nodeJs",
+                "icon": "https://cdn-icons-png.flaticon.com/512/5968/5968322.png"
+            }
+        ],
+        "foto_perfil": "https://avatars.githubusercontent.com/u/104533526?v=4",
+        "foto_portada": "url",
+        "password": "123456",
+        "apellido": "Gerardo",
+        "id": "1",
     }
 ]

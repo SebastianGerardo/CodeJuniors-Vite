@@ -1,13 +1,13 @@
-/*'use client'
 import './PerfilDeveloper.css'
 import { useEffect, useState } from "react"
-//import { DataDevCom } from '../../../services/DataDevCom'
-//import Tecnologias from '../../../components/DevelopersPage/perfil/Tecnologias'
-//import Experiencia from '../../../components/DevelopersPage/perfil/Experiencia'
-//import Educacion from '../../../components/DevelopersPage/perfil/Educacion'
-//import SobreMi from '../../../components/DevelopersPage/perfil/SobreMi'
-import InformacionDev from '../../../../components/DevelopersPage/perfil/InformacionDev'
-import developer_perfil from '../../../../public/Developer/developer_perfil.svg'
+
+import {ApiDeveloper} from '../../../../helpers/ApiDeveloper'
+import Tecnologias from '../../components/perfil/Tecnologias'
+import Experiencia from '../../components/perfil/Experiencia'
+import Educacion from '../../components/perfil/Educacion'
+import SobreMi from '../../components/perfil/SobreMi'
+import InformacionDev from '../../components/perfil/InformacionDev'
+import developer_perfil from '../../../../assets/Developer/developer_perfil.svg'
 
 const Perfildeveloper = () => {
 
@@ -18,16 +18,12 @@ const Perfildeveloper = () => {
     const [sob, setSob] = useState([]);
 
     
-
-    const fetchDev = async(developer) => {
-        console.log(dv)
-        const dataDev = await DataDevCom(dv, developer);
-        console.log(dataDev[0]);
-        setDev(dataDev[0]);
-        setTec(dataDev[0].tecnologia);
-        setExp(dataDev[0].experiencia);
-        setEdu(dataDev[0].educacion);
-        setSob(dataDev[0].redes);
+    const fetchDev = async() => {
+        setDev(ApiDeveloper[0]);
+        setTec(ApiDeveloper[0].tecnologia);
+        setExp(ApiDeveloper[0].experiencia);
+        setEdu(ApiDeveloper[0].educacion);
+        setSob(ApiDeveloper[0].redes);
     }
 
     useEffect( () => {
@@ -49,11 +45,11 @@ const Perfildeveloper = () => {
                 <div className="col">
                     <Educacion educacion={edu} />
                     <Experiencia experiencia={exp} />
-                    <Tecnologias tecnologia={tec} />
+                    <Tecnologias tecnologia={tec} /> 
                 </div>
             </div>
         </div>
     )
 }
 
-export default Perfildeveloper;*/
+export default Perfildeveloper;

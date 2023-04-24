@@ -42,9 +42,10 @@
 .banner-img{
     width: 300px;
 }
-
 .search_job{
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
 }
 .search_job_-input{
     width: 50%;
@@ -62,6 +63,30 @@
     padding: 5px 8px;
     margin-right: 8px;
     border-radius: 8px;
+}
+.search-div{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+}
+.btn-search{
+    padding: 16px 20px;
+    border-radius: 8px;
+    background-color: #a2ced2;
+    font-weight: 700;
+    margin-left: 15px;
+}
+.transicion-escala{
+    transition: .3s;
+}
+.transicion-escala:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+}
+.transicion-escala:active{
+    transform: scale(0.95);
 }
 
 .jobs{

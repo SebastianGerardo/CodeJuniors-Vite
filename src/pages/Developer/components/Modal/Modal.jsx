@@ -17,7 +17,7 @@ const Modal = () => {
 
     const clickAlert = () => {
         setShowhidden('flex')
-        setTimeout(()=>setShowhidden('hidden'),6000)
+        setTimeout(()=>setShowhidden('hidden'),4000)
     }
 
     useEffect(()=>{
