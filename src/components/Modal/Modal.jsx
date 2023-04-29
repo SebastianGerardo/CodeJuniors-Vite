@@ -17,7 +17,7 @@ export default function Modal({ isOpen, onClose, children }) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 50, opacity: 0, transition: { duration: 0.5 } }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-lg p-5 max-w-[90%] max-h-[90%] overflow-auto"
+            className="bg-white rounded-lg max-w-[90%] max-h-[90%] overflow-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {children}

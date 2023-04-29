@@ -8,6 +8,7 @@ import Developer from "../pages/Developer/Developer"
 import PuestosTrabajos from "../pages/Developer/pages/BuscarTrabajos/BuscarTrabajos"
 import Home from "../pages/Home/Home"
 import Perfildeveloper from "../pages/Developer/pages/PerfilDeveloper/PerfilDeveloper"
+import Login from "../pages/Login/Login"
 
 const AppRouter = () => {
   return (
@@ -30,6 +31,9 @@ const AppRouter = () => {
           <Route path="notifications" element={<NotificationData />}>
             <Route index element={<Gerardo/>}/>    
           </Route>
+        </Route>
+        <Route path="/login" element={<Login />}>
+          
         </Route>
       </Routes>
     </BrowserRouter>
