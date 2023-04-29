@@ -48,3 +48,9 @@
 .activate{
     border: 3px solid #0e3047;
 }
+.error-input{
+    border: 1px solid red;
+}
+.success-input{
+    border: 1px solid green;
+}
