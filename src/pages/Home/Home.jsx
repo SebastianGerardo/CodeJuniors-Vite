@@ -4,11 +4,12 @@ import Header from './components/Header'
 
 const Home = () => {
   return (
-    <div>
-      
-      <Header />
+    <div className="scroll-smooth">
+      <div className='mx-auto max-w-7xl'>
+        <Header />
+      </div>
 
-      <div>
+      <div className='mx-auto max-w-6xl'>
         <Outlet />
       </div>
     </div>
