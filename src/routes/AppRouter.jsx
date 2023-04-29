@@ -8,14 +8,15 @@ import Developer from "../pages/Developer/Developer"
 import PuestosTrabajos from "../pages/Developer/pages/BuscarTrabajos/BuscarTrabajos"
 import Home from "../pages/Home/Home"
 import Perfildeveloper from "../pages/Developer/pages/PerfilDeveloper/PerfilDeveloper"
-import Login from "../pages/Login/Login"
+import Login from "../pages/Home/pages/Login/Login"
+import MainPage from "../pages/Home/pages/MainPage/MainPage"
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route index element={<h1></h1>} />
+          <Route index element={<MainPage />} />
         </Route>
         <Route path="*" element={<h1>404</h1>} />
         <Route path="/developer" element={<Developer />}>
@@ -32,9 +33,7 @@ const AppRouter = () => {
             <Route index element={<Gerardo/>}/>    
           </Route>
         </Route>
-        <Route path="/login" element={<Login />}>
-          
-        </Route>
+        <Route path="/login" element={<Login/>} />
       </Routes>
     </BrowserRouter>
   )

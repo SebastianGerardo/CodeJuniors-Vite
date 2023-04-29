@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <header className="bg-white">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between p-6 lg:px-8 " aria-label="Global">
+      <nav className="flex items-center justify-between p-6 lg:px-8 " aria-label="Global">
 
         {/* LOGO */}
         <div className="flex lg:flex-1">
@@ -36,7 +36,7 @@ export default function Header() {
 
         {/* ENLACES */}
           <NavLink to="/" end>Home</NavLink>
-          <NavLink to="/nosotros" >Nosotros</NavLink>
+          <a href="#nosotros" >Nosotros</a>
           <NavLink to="/blog" >Blog</NavLink>
           
         {/* CTA */}
