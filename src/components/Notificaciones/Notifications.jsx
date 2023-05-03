@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Notification.css";
 import NotificationData from "./NotificationData/Notifications";
 
 export default function Notifications() {
+  
   return (
     <div className="notification-section">
       <div className="notification-section-center">

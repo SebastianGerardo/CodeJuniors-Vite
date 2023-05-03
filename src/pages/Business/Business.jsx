@@ -4,13 +4,16 @@ import developer from '../../assets/Menu/developer.png'
 import notification from '../../assets/Menu/notification.png'
 import user from '../../assets/Menu/user.png'
 import Menu from '../../components/Menu/Menu'
+import ContextPage from '../../context/ContextPage'
 
 const Business = () => {
   return (
-    <div className='flex'>
-        <Menu LinksMenu={LinksBusiness} />
-        <Outlet />
-    </div>
+    <ContextPage>
+      <div className='flex'>
+          <Menu LinksMenu={LinksBusiness} />
+          <Outlet />
+      </div>
+    </ContextPage>
   )
 }
 

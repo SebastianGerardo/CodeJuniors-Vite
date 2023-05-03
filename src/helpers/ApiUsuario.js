@@ -2,7 +2,7 @@ import { URL } from "./ApiUrl";
 
 export const LoginDesarrollador = async(login) => {
     try {
-        const fetchResponse = await fetch(`${URL}/desarrollador/login`,
+        const fetchResponse = await fetch(`${URL}/auth/login`,
         {
             method: 'POST',
             headers: {
@@ -20,7 +20,7 @@ export const LoginDesarrollador = async(login) => {
 
 export const verificarDesarrollador = async(bearer) => {
     try {
-        const fetchResponse = await fetch(`${URL}/desarrollador`,
+        const fetchResponse = await fetch(`${URL}/auth/verify`,
         {
             method: 'GET',
             headers: {

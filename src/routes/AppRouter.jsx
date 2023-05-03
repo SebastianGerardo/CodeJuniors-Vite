@@ -11,6 +11,7 @@ import Perfildeveloper from "../pages/Developer/pages/PerfilDeveloper/PerfilDeve
 import Login from "../pages/Home/pages/Login/Login"
 import MainPage from "../pages/Home/pages/MainPage/MainPage"
 import { PrivateRouter } from "./PrivateRouter"
+import ContextPage from "../context/ContextPage"
 
 const AppRouter = () => {
   return (
@@ -19,21 +20,20 @@ const AppRouter = () => {
         <Route path="/" element={<Home />}>
           <Route index element={<MainPage />} />
         </Route>
-        <Route path="*" element={<h1>404</h1>} />
-          <Route path="/developer" element={<PrivateRouter><Developer /></PrivateRouter>}>
-            <Route index element={<Perfildeveloper /> } />
-            <Route path="puestos-trabajos" element={<PuestosTrabajos />} />
-            <Route path="notifications" element={<NotificationData />}>
-              <Route index element={<Gerardo/>}/>    
-            </Route>
+        <Route path="/developer" element={<PrivateRouter><Developer /></PrivateRouter>}>
+          <Route index element={<Perfildeveloper /> } />
+          <Route path="puestos-trabajos" element={<PuestosTrabajos />} />
+          <Route path="notifications" element={<NotificationData />}>
+            <Route index element={<Gerardo/>}/>    
           </Route>
-          <Route path="/business" element={<PrivateRouter><Business /></PrivateRouter>}>
-            <Route index element={<PerfilBusiness />} />
-            <Route path="developers" element={<DevelopersSection />} />
-            <Route path="notifications" element={<NotificationData />}>
-              <Route index element={<Gerardo/>}/>    
-            </Route>
+        </Route>
+        <Route path="/business" element={<PrivateRouter><Business /></PrivateRouter>}>
+          <Route index element={<PerfilBusiness />} />
+          <Route path="developers" element={<DevelopersSection />} />
+          <Route path="notifications" element={<NotificationData />}>
+            <Route index element={<Gerardo/>}/>    
           </Route>
+        </Route>
         <Route path="/login" element={<Login/>} />
       </Routes>
     </BrowserRouter>
