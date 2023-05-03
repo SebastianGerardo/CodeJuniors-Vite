@@ -10,6 +10,7 @@ import Home from "../pages/Home/Home"
 import Perfildeveloper from "../pages/Developer/pages/PerfilDeveloper/PerfilDeveloper"
 import Login from "../pages/Home/pages/Login/Login"
 import MainPage from "../pages/Home/pages/MainPage/MainPage"
+import { PrivateRouter } from "./PrivateRouter"
 
 const AppRouter = () => {
   return (
@@ -19,20 +20,20 @@ const AppRouter = () => {
           <Route index element={<MainPage />} />
         </Route>
         <Route path="*" element={<h1>404</h1>} />
-        <Route path="/developer" element={<Developer />}>
-          <Route index element={<Perfildeveloper /> } />
-          <Route path="puestos-trabajos" element={<PuestosTrabajos />} />
-          <Route path="notifications" element={<NotificationData />}>
-            <Route index element={<Gerardo/>}/>    
+          <Route path="/developer" element={<PrivateRouter><Developer /></PrivateRouter>}>
+            <Route index element={<Perfildeveloper /> } />
+            <Route path="puestos-trabajos" element={<PuestosTrabajos />} />
+            <Route path="notifications" element={<NotificationData />}>
+              <Route index element={<Gerardo/>}/>    
+            </Route>
           </Route>
-        </Route>
-        <Route path="/business" element={<Business />}>
-          <Route index element={<PerfilBusiness />} />
-          <Route path="developers" element={<DevelopersSection />} />
-          <Route path="notifications" element={<NotificationData />}>
-            <Route index element={<Gerardo/>}/>    
+          <Route path="/business" element={<PrivateRouter><Business /></PrivateRouter>}>
+            <Route index element={<PerfilBusiness />} />
+            <Route path="developers" element={<DevelopersSection />} />
+            <Route path="notifications" element={<NotificationData />}>
+              <Route index element={<Gerardo/>}/>    
+            </Route>
           </Route>
-        </Route>
         <Route path="/login" element={<Login/>} />
       </Routes>
     </BrowserRouter>

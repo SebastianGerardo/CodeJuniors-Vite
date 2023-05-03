@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import './Propuestas.css';
-import Modal from "../Modal/Modal";
+import ModalPropuestas from "../Modal/ModalPropuestas";
+import Modal from "../../../../components/Modal/Modal";
 //import ModalRedes from '../../CompanyPage/Modal/ModalRedes';
 
 const Propuesta = (props) => {
@@ -16,11 +17,22 @@ const Propuesta = (props) => {
         fetchEdu();
     }, [props.business])
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsOpen(true);
+      };
+    
+      const handleCloseModal = () => {
+        setIsOpen(false);
+      };
+
+
     return(
         <div className="jobs">
             {
                 pro.length && pro.map((b, index)=>(
-                    <div className="job" onClick={()=>setModal(!modal)} key={index}>
+                    <div className="job" onClick={handleOpenModal} key={index}>
                         <div className='job_info'>
                             <div className="job_img">
                                 <img src={b.logo_empresa} alt="" width={72} height={72} className="img-job" />
@@ -41,10 +53,9 @@ const Propuesta = (props) => {
                     </div>
                 ))
             }
-            <div className={`modal-business ${modal && 'activebusiness'}`}>
-                <section className={`modal-business-background ${modal && 'activemodalbusiness'}`} onClick={()=>setModal(!modal)}></section>
-                <Modal />
-            </div>
+                <Modal isOpen={isOpen} onClose={handleCloseModal}>
+                    <ModalPropuestas />
+                </Modal>
         </div>
     )
 }

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 const SobreMi = (props) => {
     const [ sob, setSob ] = useState([]);
 
+    console.log(props.dataUsuario)
+
     const fetchSob = () => {
         setSob(props.sob);
     }
@@ -14,7 +16,7 @@ const SobreMi = (props) => {
     return(
         <div className="about-me card">
             <h2 className="subtitle"><ion-icon name="person"></ion-icon> Sobre mi</h2>
-            <p className="p">{props.bio}</p>
+            <p className="p">{props.dataUsuario?.desarrollador_descripcion}</p>
             {
                 sob.length > 0 && sob.map((s)=>(
                     <a href={s.link} target="_blank" className="link"><ion-icon name={s.web}></ion-icon> @{s.name} </a>

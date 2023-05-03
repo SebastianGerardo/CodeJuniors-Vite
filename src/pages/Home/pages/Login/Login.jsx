@@ -1,18 +1,32 @@
 import React, { useState } from "react";
 import login_img from "../../../../assets/Home/login-img.svg"
-import {NavLink} from "react-router-dom"
+import {NavLink, useNavigate} from "react-router-dom"
+import { LoginDesarrollador } from "../../../../helpers/ApiUsuario";
 
 const Login = () => {
 
     const [infoForm, setInfoForm] = useState({
-        email: "",
-        password: ""
+        tipo: "desarrollador",
+        desarrollador_email: "",
+        desarrollador_password: ""
     })
 
     const handleInputChange = (e) => {
         setInfoForm({
             ...infoForm,
             [e.target.name]: e.target.value
+        })
+    }
+
+    const navigate = useNavigate()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        LoginDesarrollador(infoForm).then((res) => {
+            if (res.status == 200) {
+                localStorage.setItem("token", res.token)
+                navigate("/developer", {replace: true, state: {logged:true}})
+            }
         })
     }
 
@@ -28,7 +42,7 @@ const Login = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <form action="" className="relative px-4 py-12 flex flex-col items-start gap-4 w-max">
+        <form action="" onSubmit={(e) => handleSubmit(e)} className="relative px-4 py-12 flex flex-col items-start gap-4 w-max">
             <h1 className="text-2xl font-medium">Bienvenid@ Desarrollador!</h1>
             <h2 className="flex gap-1 text-lg">
                 ¿Eres nuevo? 
@@ -36,9 +50,18 @@ const Login = () => {
                  o 
                 <NavLink to={"/"} className="text-[#06b6d4] hover:text-[#793AFF] transition-all duration-150 font-medium">Vuelve al Inicio</NavLink>
             </h2>
-            <InputDefault onChange={handleInputChange} label="Email" type="email" name="email" />
-            <NavLink className="text-[#FA632B] hover:text-[#793AFF] transition-all duration-150 font-medium text-base absolute top-[15rem] right-4">¿Olvidaste la contraseña?</NavLink>
-            <InputDefault onChange={handleInputChange} label="Password" type="email" name="password" />
+            <label className="w-full">
+                <span className="pl-1 after:content-['*'] after:ml-0.5 after:text-red-500 block text-base font-medium text-slate-700">
+                 Tipo de usuario
+                </span>
+                <select defaultValue="desarrollador" name="tipo" onChange={handleInputChange} className="block w-full h-14 rounded-md sm:text-sm mt-1 px-4 py-3 bg-[#F3F6F9] transition-all ease-in-out duration-150 border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none outline-none focus:bg-[#EBEDF3]"  >
+                    <option value="desarrollador">Desarrollador</option>
+                    <option value="empresa">Empresa</option>
+                </select>
+            </label>
+            <InputDefault onChange={handleInputChange} label="Email" type="email" name="desarrollador_email" />
+            <NavLink className="text-[#FA632B] hover:text-[#793AFF] transition-all duration-150 font-medium text-base absolute top-[21.3rem] right-4">¿Olvidaste la contraseña?</NavLink>
+            <InputDefault onChange={handleInputChange} label="Password" type="password" name="desarrollador_password" />
             <div className="flex items-center gap-2">
                 <button
                 className={`bg-[#FA632BD9] hover:bg-[#FA632B] transition-all duration-150 text-white font-medium py-2 px-4 rounded h-12`}

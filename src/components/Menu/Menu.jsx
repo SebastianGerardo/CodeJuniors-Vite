@@ -32,6 +32,7 @@ const Menu = ({LinksMenu}) => {
                                 LinksMenu.length > 0 && LinksMenu.map((link) => (
                                     <li key={link.id}>
                                         <NavLink 
+                                        state={{logged: true}}
                                         onClick={() => menu === false ? "" : setMenu(!menu)} 
                                         className='links' 
                                         style={({ isActive }) => isActive ? activeStyle : undefined} 

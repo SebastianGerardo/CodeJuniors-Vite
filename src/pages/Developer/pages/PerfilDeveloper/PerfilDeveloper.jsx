@@ -1,5 +1,5 @@
 import './PerfilDeveloper.css'
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 import {ApiDeveloper} from '../../../../helpers/ApiDeveloper'
 import Tecnologias from '../../components/perfil/Tecnologias'
@@ -8,8 +8,11 @@ import Educacion from '../../components/perfil/Educacion'
 import SobreMi from '../../components/perfil/SobreMi'
 import InformacionDev from '../../components/perfil/InformacionDev'
 import developer_perfil from '../../../../assets/Developer/developer_perfil.svg'
+import { UserContext } from '../../../../context/ContextPage'
 
 const Perfildeveloper = () => {
+
+    const {usuarioLogin} = useContext(UserContext)
 
     const [dev, setDev] = useState([]);
     const [tec, setTec] = useState([]);
@@ -17,7 +20,6 @@ const Perfildeveloper = () => {
     const [edu, setEdu] = useState([]);
     const [sob, setSob] = useState([]);
 
-    
     const fetchDev = async() => {
         setDev(ApiDeveloper[0]);
         setTec(ApiDeveloper[0].tecnologia);
@@ -31,7 +33,7 @@ const Perfildeveloper = () => {
     }, [] )
 
     return (
-        <div className="container">
+        <div className="container mx-auto">
             <div className="header-dev">
                 <h2 className='banner-h2'>Personaliza tu perfil con todas las habilidades tienes para mostrar</h2>
                 <img src={developer_perfil} alt="" width={150} />
@@ -39,8 +41,8 @@ const Perfildeveloper = () => {
             </div>
             <div className="data-dev">
                 <div className="col">
-                    <InformacionDev nombre={dev.nombre} apellido={dev.apellido} cargo={dev.cargo} telefono={dev.telefono} correo={dev.correo} />
-                    <SobreMi bio={dev.biografia} sob={sob} />
+                    <InformacionDev dataUsuario={usuarioLogin} />
+                    <SobreMi dataUsuario={usuarioLogin} bio={dev.biografia} sob={sob} />
                 </div>
                 <div className="col">
                     <Educacion educacion={edu} />

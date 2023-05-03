@@ -11,7 +11,7 @@ import circleBottomLeft from '../../../../assets/Developer/circle-bottom-left.sv
 import close from '../../../../assets/Developer/close.svg'
 import check from '../../../../assets/Developer/check.svg'
 
-const Modal = () => {
+const ModalPropuestas = () => {
 
     const [showhidden, setShowhidden] = useState('hidden')
 
@@ -95,4 +95,4 @@ const Modal = () => {
     )
 }
 
-export default Modal
+export default ModalPropuestas

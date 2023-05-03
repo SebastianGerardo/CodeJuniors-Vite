@@ -4,13 +4,16 @@ import notification from '../../assets/Menu/notification.png'
 import user from '../../assets/Menu/user.png'
 import developer from '../../assets/Menu/developer.png'
 import { Outlet } from "react-router-dom";
+import ContextPage from "../../context/ContextPage";
 
 const Developer = () => {
   return (
-    <div className="flex">
-      <Menu LinksMenu={LinksDeveloper} />
-      <Outlet />
-    </div>
+    <ContextPage>
+      <div className="flex">
+        <Menu LinksMenu={LinksDeveloper} />
+        <Outlet />
+      </div>
+    </ContextPage>
   );
 };
 
