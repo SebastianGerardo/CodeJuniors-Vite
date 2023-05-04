@@ -137,28 +137,6 @@ ion-icon{
 }
 
 
-
-/* *************************************** */
-/* *********** CARD INSTITUTION ********** */
-/* *************************************** */
-.institution{
-    display: flex;
-    justify-content: space-between;
-    background-color: #BDCDD6;
-
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15PX;
-}
-.institution-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.institution-text p{
-    margin: 0;
-}
-
 /* *************************************** */
 /* *********** CARD BUSINESS ********** */
 /* *************************************** */

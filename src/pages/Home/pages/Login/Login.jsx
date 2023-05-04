@@ -113,7 +113,6 @@ const Login = () => {
                     Ingresar
                     </button>
                     <div
-                    to="/"
                     className="flex gap-2 items-center cursor-pointer bg-[#E1F0FF] text-[#3699FF] hover:bg-[#3699FF] hover:text-white h-12 transition-all duration-150 font-medium py-2 px-4 rounded"
                     >
                     <GoogleIcon />

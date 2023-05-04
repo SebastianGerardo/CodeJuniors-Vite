@@ -13,7 +13,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const Perfildeveloper = () => {
 
-    const {usuarioLogin} = useContext(UserContext)
+    const {usuarioLogin, handleRecargarTabla} = useContext(UserContext)
 
     const [loading, setLoading] = useState(true);
 
@@ -59,8 +59,8 @@ const Perfildeveloper = () => {
                         transition={{ duration: 0.3 }}
                         className="container mx-auto"
                         >
-                            <div className="header-dev">
-                                <h2 className='banner-h2'>Personaliza tu perfil con todas las habilidades tienes para mostrar</h2>
+                            <div className="header-dev ">
+                                <h2 className='banner-h2 w-max'>Personaliza tu perfil con todas las habilidades que tienes para mostrar</h2>
                                 <img src={developer_perfil} alt="" width={150} />
                                 <img src={dev.foto_perfil} alt="" className="photo-perfil" width={100} />
                             </div>
@@ -70,7 +70,7 @@ const Perfildeveloper = () => {
                                     <SobreMi dataUsuario={usuarioLogin} bio={dev.biografia} sob={sob} />
                                 </div>
                                 <div className="col">
-                                    <Educacion educacion={edu} />
+                                    <Educacion handleRecargarTabla={handleRecargarTabla} dataUsuario={usuarioLogin} educacion={edu} />
                                     <Experiencia experiencia={exp} />
                                     <Tecnologias tecnologia={tec} /> 
                                 </div>

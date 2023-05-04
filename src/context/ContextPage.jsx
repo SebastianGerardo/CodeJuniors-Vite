@@ -7,7 +7,12 @@ export const UserContext = createContext()
 const ContextPage = ({children}) => {
   const token = localStorage.getItem("token")
   const [usuarioLogin, setUsuarioLogin] = useState([])
+  const [recargarTabla, setRecargarTabla] = useState(false)
   const navigate = useNavigate()
+
+  const handleRecargarTabla = () => {
+    setRecargarTabla(!recargarTabla)
+  }
 
   useEffect(() => {
     verificarDesarrollador(token).then((res) => {
@@ -20,10 +25,10 @@ const ContextPage = ({children}) => {
         }
       }
     })
-  }, [])
+  }, [recargarTabla])
 
   return (
-    <UserContext.Provider value={{usuarioLogin}}>
+    <UserContext.Provider value={{usuarioLogin, handleRecargarTabla}}>
       {children}
     </UserContext.Provider>
   )
