@@ -1,11 +1,9 @@
 import { useState } from "react"
 import Modal from "../../../../components/Modal/Modal";
-import ModalEdit from '../Modal/ModalEdit'
+import ModalEdit from '../modals/ModalEdit/ModalEdit'
 
 const InformacionDev = ({dataUsuario}) => {
     
-    // const [modal, setModal] = useState(false);
-
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenModal = () => {
@@ -25,15 +23,9 @@ const InformacionDev = ({dataUsuario}) => {
             <p className='p'><ion-icon name="call-outline"></ion-icon> { dataUsuario?.desarrollador_telefono}</p>
             <p className='p'><ion-icon name="mail-outline"></ion-icon> {dataUsuario?.desarrollador_email}</p>
             <button className="btn-edit" onClick={handleOpenModal}>Editar Perfil</button>
-
-
-            {/* <div className={`modal-business `}> */}
-                <Modal isOpen={isOpen} onClose={handleCloseModal}>
-                    <ModalEdit dataUsuario={dataUsuario} handleCloseModal={handleCloseModal} />
-
-                </Modal>
-                {/* <section className={`modal-business-background `} onClick={()=>setModal(!modal)}></section> */}
-            {/* </div> */}
+            <Modal isOpen={isOpen} onClose={handleCloseModal}>
+                <ModalEdit dataUsuario={dataUsuario} handleCloseModal={handleCloseModal} />
+            </Modal>
         </div>
     )
 }

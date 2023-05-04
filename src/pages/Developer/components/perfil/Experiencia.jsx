@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import editIcon from '../../../../assets/Icons/edit.svg'
+import Modal from "../../../../components/Modal/Modal";
+import ModalExperiencia from "../modals/ModalExperiencia";
 
 const Experiencia = (props) => {
 
@@ -7,16 +10,35 @@ const Experiencia = (props) => {
     const fetchExp = () => {
         setExp(props.experiencia);
     }
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsOpen(true);
+        console.log("click")
+     };
+    
+     const handleCloseModal = () => {
+       setIsOpen(false);
+     };
+
+
+
     useEffect( ()=>{
         fetchExp()
     }, [props.experiencia] )
 
     return (
         <div className="my-experience card mb">
-            <h2 className="subtitle"><ion-icon name="bag"></ion-icon> Mi Experiencia</h2>
+            <div className="w-full flex justify-between">
+                <h2 className="subtitle"><ion-icon name="bag"></ion-icon> Mi Experiencia</h2>
+                <span onClick={handleOpenModal} className="cursor-pointer">
+                    <img src={editIcon} alt="Editar" className=""/>
+                </span>
+            </div>
             {
-                exp.length > 0 && exp.map((e)=>(
-                    <div className="business">
+                exp.length > 0 && exp.map((e, index)=>(
+                    <div key={index} className="business">
                         <div className="business-info">
                             <div className="business-name">
                                 <h3 key={e.name_biss}><ion-icon name="business"></ion-icon> {e.name_biss}</h3>
@@ -28,6 +50,9 @@ const Experiencia = (props) => {
                     </div>
                 ))
             }
+            <Modal isOpen={isOpen} onClose={handleCloseModal}>
+                <ModalExperiencia />
+            </Modal>
         </div>
     )
 }

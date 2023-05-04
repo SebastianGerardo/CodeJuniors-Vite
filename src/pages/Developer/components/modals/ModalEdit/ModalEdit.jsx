@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { InputBasic } from '../../../../components/Inputs/InputBasic';
+import { InputBasic } from '../../../../../components/Inputs/InputBasic';
 import './ModalEdit.css'
 
 const ModalEdit = ({handleCloseModal, dataUsuario}) => {

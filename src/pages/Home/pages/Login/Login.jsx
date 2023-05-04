@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 
 const Login = () => {
+  
   const [infoForm, setInfoForm] = useState({
     tipo: "desarrollador",
     email: "",

@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import './Modal.css';
-import share from '../../../../assets/Developer/share.svg'
-import modalidad from '../../../../assets/Developer/modalidad.svg'
-import jornada from '../../../../assets/Developer/jornada.svg'
-import saladio from '../../../../assets/Developer/salario.svg'
-import publicado from '../../../../assets/Developer/publicado.svg'
-import circleTopRight from '../../../../assets/Developer/circle-top-right.svg'
-import circleBottomRight from '../../../../assets/Developer/circle-bottom-right.svg'
-import circleBottomLeft from '../../../../assets/Developer/circle-bottom-left.svg'
-import close from '../../../../assets/Developer/close.svg'
-import check from '../../../../assets/Developer/check.svg'
+import share from '../../../../../assets/Developer/share.svg'
+import modalidad from '../../../../../assets/Developer/modalidad.svg'
+import jornada from '../../../../../assets/Developer/jornada.svg'
+import saladio from '../../../../../assets/Developer/salario.svg'
+import publicado from '../../../../../assets/Developer/publicado.svg'
+import circleTopRight from '../../../../../assets/Developer/circle-top-right.svg'
+import circleBottomRight from '../../../../../assets/Developer/circle-bottom-right.svg'
+import circleBottomLeft from '../../../../../assets/Developer/circle-bottom-left.svg'
+import close from '../../../../../assets/Developer/close.svg'
+import check from '../../../../../assets/Developer/check.svg'
 
 const ModalPropuestas = () => {
 
