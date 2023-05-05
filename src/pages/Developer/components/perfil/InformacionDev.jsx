@@ -17,7 +17,7 @@ const InformacionDev = ({dataUsuario}) => {
 
 
     return (
-        <div className="info-dev mb card">
+        <div className="mb card">
             <h2 className="name-dev"><ion-icon name="person"></ion-icon> { dataUsuario?.desarrollador_nombre?.split(" ", 1) + " " + dataUsuario?.desarrollador_apellido?.split(" ", 1) }</h2>
             <h4 className="job-dev"><ion-icon name="code-outline"></ion-icon> { dataUsuario?.desarrollador_cargo}</h4>
             <p className='p'><ion-icon name="call-outline"></ion-icon> { dataUsuario?.desarrollador_telefono}</p>

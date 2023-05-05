@@ -123,13 +123,10 @@ ion-icon{
 
 .card{
     background-color: #ecf1f4;
-    /* background-color: #133d58; */
-    /* border: 1px solid #F8F5E4; */
     border-radius: 8px;
     padding: 25px;
     display: flex;
     flex-direction: column;
-    width: calc(100% - 50px);
 }
 
 .info-dev{
