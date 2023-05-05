@@ -1,28 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Modal from '../../../../../../components/Modal/Modal';
+import ModalBanner from '../../modals/ModalBanner'
 import './PerfilBannerCompany.css'
 // import bannerCompanyDefault from '../../../../assets/Perfil/banner-company-default.jpg'
 
 export default function PerfilBannerCompany(props) {
+  const [dataSeleccionada, setDataSeleccionada] = useState({});
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsOpen(true);
+     };
+    
+     const handleCloseModal = () => {
+        // setDataSeleccionada({});
+       setIsOpen(false);
+     };
   return (
       <section className='perfil-company'>
         <div className='company__banner'>
-          <h1 className="logo logo-banner-company">Dev<span className="logo-extend logo-extend_banner ">Juniors</span></h1>
+          <h1 className="logo logo-banner-company text-[#ffb0ff] text-[28px] font-bold">Dev<span className="logo-extend logo-extend_banner ">Juniors</span></h1>
           <div className='company_info'>
-            <div className='company__info-img'>
-              <img src={props.logoEmpresa} alt=''/>
+            <div onClick={handleOpenModal} className='company__info-img'>
+              <img src={props.dataUsuario?.empresa_foto} alt=''/>
             </div>
-            <h1 className='company__info-name'>{props.nombreEmpresa}</h1>
+            <h1 className='company__info-name font-bold'>{props.dataUsuario?.empresa_nombre}</h1>
           </div>
         </div>
-        {/* <div className='company__description'> */}
-          {/* In progress...
-
-          <div className='company_share'>
-            <a href='.'>Compartir</a>
-          </div>
-           
-          */}
-        {/* </div> */}
+        <Modal isOpen={isOpen} onClose={handleCloseModal}>
+          <ModalBanner handleRecargarTabla={props.handleRecargarTabla} handleCloseModal={handleCloseModal} dataSeleccionada={dataSeleccionada} dataUsuario={props.dataUsuario} />
+        </Modal>
       </section>
   )
 }

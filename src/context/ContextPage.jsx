@@ -23,6 +23,9 @@ const ContextPage = ({children}) => {
         } else if (res.content.id_empresa){
           navigate("/business", {state: {logged: true}})
         }
+      } else {
+        localStorage.removeItem("token")
+        navigate("/login", {state: {logged: false}})
       }
     })
   }, [recargarTabla])

@@ -1,44 +1,45 @@
 import React, { useEffect, useState } from 'react'
+import Modal from '../../../../../../components/Modal/Modal';
+import ModalJobs from '../../modals/ModalJobs';
 import './PerfilJobsCompany.css'
-// import ModalEmpleo from '../../Modal/ModalEmpleo';
 
 const PerfilJobsCompany = (props) => {
-    const [ job, setJob ] = useState(props.puestosEmpresa);
-    const [modal, setModal] = useState(false);
+    const [dataSeleccionada, setDataSeleccionada] = useState({});
 
-    // const trabajo = () => {
-    //     setJob(props.puestosEmpresa)
-    //     console.log(props.puestosEmpresa)
-    // }
+    const [isOpen, setIsOpen] = useState(false);
 
-    // useEffect(() => {
-    //     trabajo()
-    // }, [])
-
+    const handleOpenModal = () => {
+        setIsOpen(true);
+     };
+    
+     const handleCloseModal = () => {
+        setDataSeleccionada({});
+       setIsOpen(false);
+     };
     return (
     <section className='jobs-company'>
         <div className='jobs-section-button'>
-          <h1 className='title-section-company'>Vacantes:</h1>
-          <button onClick={()=>setModal(!modal)}><h2>+</h2></button>
+          <h1 className='title-section-company text-xl font-bold'>Vacantes:</h1>
+          <button onClick={handleOpenModal} ><h2>+</h2></button>
         </div>
         <section className='jobs-section'>
-            <div className='jobs-cards-section'>
-            { job?.length && job?.map((element, index) => (
-                    <div key={index} className="job control-job">
-                       <div className='job_info'>
+            <div className='jobs-cards-section flex flex-col gap-3'>
+            { props?.dataUsuario?.trabajos && props?.dataUsuario?.trabajos.length > 0 && props?.dataUsuario?.trabajos.map((element, index) => (
+                    <div onClick={() => {handleOpenModal(), setDataSeleccionada(element)}} key={index} className="job control-job">
+                       <div className='job_info flex items-center'>
                            <div className="job_img job-img-box">
-                               <img src={props.logoEmpresa} alt="" width={72} height={72} className="img-job" />
+                               <img src={props?.dataUsuario?.empresa_foto} alt="" width={72} height={72} className="img-job" />
                            </div>
                            <div className="job_descr">
-                               <p className="p-descr">{props.nombreEmpresa}</p>
-                               <h2 className='h2-cargo'> {element.cargo_buscado} | {element.nivel_dev} </h2>
-                               <p className="p-descr"><ion-icon name="wifi"></ion-icon> {element.tipo_trabajo} | {element.tiempo_trabajo} | {element.sueldo_trabajo} </p>
+                               <p className="p-descr">{props?.dataUsuario?.empresa_nombre}</p>
+                               <h2 className='h2-cargo'> {element.trabajos_cargo} | {element.trabajos_modalidad} </h2>
+                               <p className="p-descr"><ion-icon name="wifi"></ion-icon> {element.trabajos_jornada} | {element.trabajos_salario} | {element.trabajos_publicado} </p>
                            </div>
                        </div>
                        <div className="job_tec">
                             {
-                                element.tecnologias.length > 0 && element.tecnologias.map((image, index)=>(
-                                    <img key={index} src={image.icon} alt="" width={20} height={20} />
+                                element?.tbl_trabajos_tecnologia?.length > 0 && element?.tbl_trabajos_tecnologia?.map((image, index)=>(
+                                    <img key={index} src={image.tbl_tecnologia.tecnologia_imagen} alt="" width={20} height={20} />
                                 ))
                             }
                        </div>
@@ -47,10 +48,9 @@ const PerfilJobsCompany = (props) => {
             </div>
         </section>
         {/* MODAL */}
-        {/* <div className={`modal-business ${modal && 'activebusiness'}`}>
-            <section className={`modal-business-background ${modal && 'activemodalbusiness'}`} onClick={()=>setModal(!modal)}></section>
-            <ModalEmpleo />
-        </div> */}
+        <Modal isOpen={isOpen} onClose={handleCloseModal}>
+          <ModalJobs handleRecargarTabla={props.handleRecargarTabla} handleCloseModal={handleCloseModal} dataSeleccionada={dataSeleccionada} dataUsuario={props.props?.dataUsuario} />
+        </Modal>
     </section>
   )
 }
