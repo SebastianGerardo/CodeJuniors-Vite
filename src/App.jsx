@@ -1,4 +1,5 @@
 import AppRouter from "./routes/AppRouter"
+import './scrollbar.css'
 
 function App() {
   return (

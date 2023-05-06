@@ -1,6 +1,6 @@
 import  './Notifications.css'
 import gerardoImg from '../../../assets/ChatSeccion/gerardo-img.jpg'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { NavLink, Outlet, useParams } from 'react-router-dom'
 import { Ping } from "@uiball/loaders";
 import { AnimatePresence, motion } from "framer-motion";
@@ -8,30 +8,16 @@ import { useContext } from 'react';
 import { UserContext } from '../../../context/ContextPage';
 import { verificarDesarrollador } from '../../../helpers/ApiUsuario';
 import { MensajeDesarrollador, MensajeEmpresa } from '../../../helpers/ApiMensajes';
+import SalaUsuarios from './SalaUsuarios';
 
 
 const NotificationData = () => {
-    const { dv } = useParams() 
-
-    const activeMessage = {
-        background: "#2B63FD",
-        color: "#fff",
-    }
-
-    const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    return () => clearTimeout(timeout);
-  }, []);
-
   const { usuarioLogin } = useContext(UserContext)
-
+  const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token")
   const [formNuevo, setFormNuevo] = useState([])
   const [usuario, setUsuario] = useState({})
+  const [dataSeleccionada, setDataSeleccionada] = useState({})
   const [formDesarrollador, setFormDesarrollador] = useState({
     mensaje: "",
     id_desarrollador: usuarioLogin?.id_desarrollador,
@@ -44,6 +30,15 @@ const NotificationData = () => {
     id_sala: 2,
   })
 
+  formNuevo.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       verificarDesarrollador(token).then((res) => {
@@ -51,36 +46,39 @@ const NotificationData = () => {
       })
     }, 1000);
     return () => clearInterval(interval);
-  })
+  }, [])
 
-  
+  const recargarData = usuario?.chat?.find((item) => item.id_sala == dataSeleccionada?.id_sala)
+
+  console.log(usuario.chat)
+
   useEffect(() => {
-    if(Object.values(usuario).length > 0)
-    setFormNuevo([
-      ...usuario?.chat[0]?.mensaje_des,
-      ...usuario?.chat[0]?.mensaje_emp
-    ])
+    if(Object.values(dataSeleccionada).length > 0) {
+      setDataSeleccionada(recargarData)
+        setFormNuevo([
+          ...dataSeleccionada?.mensaje_des,
+          ...dataSeleccionada?.mensaje_emp
+        ])
+    }
   }, [usuario])
-  
-
-  formNuevo.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
 
   const handleEnviar = (e) => {
     e.preventDefault()
     if (usuario?.id_desarrollador) {
       MensajeDesarrollador(formDesarrollador).then((res) => {
         console.log(res)
-        setFormDesarrollador({
-          ...formDesarrollador,
-          mensaje: ""
-        })
-       })
+      })
+      setFormDesarrollador({
+        ...formDesarrollador,
+        mensaje: ""
+      })
     } else {
       MensajeEmpresa(formEmpresa).then((res) => {
-        setFormEmpresa({
-          ...formEmpresa,
-          mensaje: ""
-        })
+        console.log(res)
+      })
+      setFormEmpresa({
+        ...formEmpresa,
+        mensaje: ""
       })
     }
   }
@@ -99,6 +97,15 @@ const NotificationData = () => {
     }
   }
 
+  const scrollableRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const { current: scrollable } = scrollableRef;
+    if (scrollable) {
+      scrollable.scrollTop = 99999;
+    }
+  }, [usuario, formEmpresa]);
+
   return (
     <>
       {loading ? (
@@ -112,29 +119,31 @@ const NotificationData = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.5 } }}
             transition={{ duration: 0.3 }}
-            className='notificationBox notification-business'
+            className='notificationBox notification-business h-screen'
             >
                 <section className='contacts-notifications'>
-                    <ul>
-                        <li><NavLink className="links-notification" to={`/developers/${dv}/notifications`} style={({ isActive }) => isActive ? activeMessage: undefined} end><div className='profile-jorge'><img className='img-profile-jorge' src={gerardoImg} alt=''/></div><div className='username-profile'>Gerardo</div></NavLink></li>
-                    </ul>
+                    <SalaUsuarios dataSeleccionada={dataSeleccionada} setDataSeleccionada={setDataSeleccionada} usuario={usuario} />
                 </section>
 
                 <section className='outlet-notification'>
                     {/* <Outlet/> */}
                     <form onSubmit={handleEnviar} className='chat-section w-full h-full' >
                       <section className='flex flex-col w-full justify-between'>
-                        <div>
+                        <div ref={scrollableRef} className='overflow-y-scroll scroll-smooth h-max scrollable'>
                           {formNuevo && formNuevo?.map((item, index) => (
                             <div key={index}>
                               {item?.id_desarrollador && 
-                              <div className={`${usuario?.id_desarrollador ? "text-right" : "text-left"}`}>
-                                {item?.mensaje}
+                              <div className={`flex flex-col justify-center  ${usuario?.id_desarrollador ? "items-end" : "items-start"}`}>
+                                <div className='bg-gray-400/30 w-max px-4 py-2 m-1 rounded-xl text-black '>
+                                  {item?.mensaje}
+                                </div>
                               </div>
                               }
                               {item?.id_empresa && 
-                              <div className={`${usuario?.id_desarrollador ? "text-left" : "text-right"}`}>
-                                {item?.mensaje}
+                              <div className={`flex flex-col justify-center  ${usuario?.id_desarrollador ? "items-start" : "items-end"}`}>
+                                <div className='bg-blue-500/30 w-max px-4 py-2 m-1 rounded-xl text-black '>
+                                  {item?.mensaje}
+                                </div>
                               </div>
                               }
                             </div>
