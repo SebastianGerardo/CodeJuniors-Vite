@@ -1,7 +1,5 @@
 import  './Notifications.css'
-import gerardoImg from '../../../assets/ChatSeccion/gerardo-img.jpg'
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { NavLink, Outlet, useParams } from 'react-router-dom'
 import { Ping } from "@uiball/loaders";
 import { AnimatePresence, motion } from "framer-motion";
 import { useContext } from 'react';
@@ -21,13 +19,13 @@ const NotificationData = () => {
   const [formDesarrollador, setFormDesarrollador] = useState({
     mensaje: "",
     id_desarrollador: usuarioLogin?.id_desarrollador,
-    id_sala: 2,
+    id_sala: dataSeleccionada?.id_sala,
   })
 
   const [formEmpresa, setFormEmpresa] = useState({
     mensaje: "",
     id_empresa: usuarioLogin?.id_empresa,
-    id_sala: 2,
+    id_sala: dataSeleccionada?.id_sala,
   })
 
   formNuevo.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
@@ -40,6 +38,17 @@ const NotificationData = () => {
   }, []);
 
   useEffect(() => {
+    setFormDesarrollador({
+      ...formDesarrollador,
+      id_sala: dataSeleccionada?.id_sala
+    })
+    setFormEmpresa({
+      ...formEmpresa,
+      id_sala: dataSeleccionada?.id_sala
+    })
+  }, [dataSeleccionada])
+
+  useEffect(() => {
     const interval = setInterval(() => {
       verificarDesarrollador(token).then((res) => {
         setUsuario(res.content)
@@ -49,8 +58,6 @@ const NotificationData = () => {
   }, [])
 
   const recargarData = usuario?.chat?.find((item) => item.id_sala == dataSeleccionada?.id_sala)
-
-  console.log(usuario.chat)
 
   useEffect(() => {
     if(Object.values(dataSeleccionada).length > 0) {
@@ -129,19 +136,19 @@ const NotificationData = () => {
                     {/* <Outlet/> */}
                     <form onSubmit={handleEnviar} className='chat-section w-full h-full' >
                       <section className='flex flex-col w-full justify-between'>
-                        <div ref={scrollableRef} className='overflow-y-scroll scroll-smooth h-max scrollable'>
+                        <div ref={scrollableRef} className='overflow-y-scroll scroll-smooth h-max scrollable pb-4'>
                           {formNuevo && formNuevo?.map((item, index) => (
                             <div key={index}>
                               {item?.id_desarrollador && 
                               <div className={`flex flex-col justify-center  ${usuario?.id_desarrollador ? "items-end" : "items-start"}`}>
-                                <div className='bg-gray-400/30 w-max px-4 py-2 m-1 rounded-xl text-black '>
+                                <div className={`${usuario?.id_desarrollador ? "bg-blue-500/30 rounded-br-none" : "bg-gray-400/30 rounded-bl-none"} w-max px-4 py-2 m-1 rounded-xl  text-black`}>
                                   {item?.mensaje}
                                 </div>
                               </div>
                               }
                               {item?.id_empresa && 
                               <div className={`flex flex-col justify-center  ${usuario?.id_desarrollador ? "items-start" : "items-end"}`}>
-                                <div className='bg-blue-500/30 w-max px-4 py-2 m-1 rounded-xl text-black '>
+                                <div className={`${usuario?.id_desarrollador ? "bg-gray-400/30 rounded-bl-none" : "bg-blue-500/30 rounded-br-none"} w-max px-4 py-2 m-1 rounded-xl  text-black`}>
                                   {item?.mensaje}
                                 </div>
                               </div>
@@ -150,7 +157,7 @@ const NotificationData = () => {
                           ))}
                         </div>
                         <div className='w-full flex gap-2 items-center justify-center'>
-                          <input value={usuario?.id_desarrollador ? formDesarrollador?.mensaje : formEmpresa.mensaje} name='mensaje' onChange={handleInputChange} type="text" className='block w-full rounded-md sm:text-sm  px-4 py-3 bg-[#F3F6F9] transition-all ease-in-out duration-150 border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none outline-none focus:bg-[#EBEDF3]' placeholder='Aa'  />
+                          <input autoComplete='off' value={usuario?.id_desarrollador ? formDesarrollador?.mensaje : formEmpresa.mensaje} name='mensaje' onChange={handleInputChange} type="text" className='block w-full rounded-md sm:text-sm  px-4 py-3 bg-[#F3F6F9] transition-all ease-in-out duration-150 border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none outline-none focus:bg-[#EBEDF3]' placeholder='Aa'  />
                           <button className={`bg-[#FA632BD9] hover:bg-[#FA632B] transition-all duration-150 text-white font-medium py-2 px-4 rounded h-12`}>Enviar</button>
                         </div>
                       </section>
