@@ -71,9 +71,9 @@ const Perfildeveloper = () => {
                                 </div>
                                 <div className='w-10'></div>
                                 <div className="col max-[1450px]:mb-20">
-                                    <Educacion handleRecargarTabla={handleRecargarTabla} dataUsuario={usuarioLogin} educacion={edu} />
-                                    <Experiencia experiencia={exp} />
-                                    <Tecnologias tecnologia={tec} /> 
+                                    <Educacion handleRecargarTabla={handleRecargarTabla} dataUsuario={usuarioLogin} />
+                                    <Experiencia handleRecargarTabla={handleRecargarTabla} dataUsuario={usuarioLogin} />
+                                    <Tecnologias handleRecargarTabla={handleRecargarTabla} dataUsuario={usuarioLogin} /> 
                                 </div>
                             </div>
                         </motion.div>

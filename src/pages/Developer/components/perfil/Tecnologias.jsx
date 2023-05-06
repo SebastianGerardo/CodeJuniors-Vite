@@ -37,9 +37,9 @@ const Tecnologias = (props) => {
                 </div>
                 <div className="skills-icon">
                     {
-                        array.map((t)=>(
-                            <img key={t.icon} src={t.icon} alt={t.name} className="img-skill" />    
-                        ))
+                        // array.map((t)=>(
+                        //     <img key={t.icon} src={t.icon} alt={t.name} className="img-skill" />    
+                        // ))
                     }
                 </div>
                 <Modal isOpen={isOpen} onClose={handleCloseModal}>
