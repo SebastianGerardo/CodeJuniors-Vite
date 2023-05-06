@@ -3,8 +3,6 @@ import {ApiEmpresa} from '../../../../helpers/ApiUser'
 import imagen_team from '../../../../assets/Developer/puesto_trabajos-team.svg';
 import { useEffect, useState } from 'react';
 import Propuesta from '../../components/Propuestas/Propuestas';
-import Search from '../../components/Search/Search';
-import close from '../../../../assets/Developer/close.svg'
 import { Ping } from "@uiball/loaders";
 import { AnimatePresence, motion } from 'framer-motion'
 import {getTrabajos} from '../../../../helpers/ApiTrabajos'
@@ -12,25 +10,15 @@ import {getTrabajos} from '../../../../helpers/ApiTrabajos'
 
 const PuestosTrabajos = () => {
     const [ business, setBusiness ] = useState([]);
-
+    const [dataSeleccionada, setDataSeleccionada] = useState({})
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-        setLoading(false);
-        }, 1000);
-        return () => clearTimeout(timeout);
-    }, []);
-
-    useEffect(() => {
         getTrabajos().then((data) => {
-            console.log(data)
+            setLoading(false);
             setBusiness(data.content)
         })
     },[])
-
-    console.log(business)
-
 
 // *******************************
     const [search,setSearch] = useState('')
@@ -93,7 +81,7 @@ const PuestosTrabajos = () => {
                             </div>
                             
 
-                            <Propuesta business={business} />
+                            <Propuesta dataSeleccionada={dataSeleccionada} setDataSeleccionada={setDataSeleccionada} business={business} />
                         </motion.div>
                     </AnimatePresence>
                 )

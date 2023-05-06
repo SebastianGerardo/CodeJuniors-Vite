@@ -18,14 +18,9 @@ const ContextPage = ({children}) => {
     verificarDesarrollador(token).then((res) => {
       if (res.status == 200) {
         setUsuarioLogin(res.content)
-        if (res.content.id_desarrollador) {
-          navigate("/developer", {state: {logged: true}})
-        } else if (res.content.id_empresa){
-          navigate("/business", {state: {logged: true}})
-        }
+        return res.content.id_desarrollador ? navigate("/developer", {state: {logged: true}}) : navigate("/business", {state: {logged: true}})
       } else {
-        localStorage.removeItem("token")
-        navigate("/login", {state: {logged: false}})
+        navigate("/", {state: {logged: false}})
       }
     })
   }, [recargarTabla])

@@ -37,3 +37,22 @@ export const MensajeEmpresa = async(mensaje) => {
         return error;
     }
 }
+
+export const CrearSala = async(mensaje) => {
+    console.log(mensaje)
+    try {
+        const fetchResponse = await fetch(`${URL}/crear_sala`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(mensaje)
+        })
+        const data = await fetchResponse.json();
+        return data;
+    }
+    catch (error) {
+        return error;
+    }
+}

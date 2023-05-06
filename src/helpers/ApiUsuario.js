@@ -36,6 +36,7 @@ export const verificarDesarrollador = async(bearer) => {
         return error;
     }
 }
+
 export const updateDesarrollador = async(id, registro,bearer) => {
     try {
         const fetchResponse = await fetch(`${URL}/desarrollador/${id}`,

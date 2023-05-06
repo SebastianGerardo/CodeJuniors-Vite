@@ -27,12 +27,13 @@ const Propuesta = (props) => {
         setIsOpen(false);
       };
 
+      console.log(props.dataSeleccionada)
 
     return(
         <div className="jobs">
             {
                 pro.length && pro.map((b, index)=>(
-                    <div className="job" onClick={handleOpenModal} key={index}>
+                    <div onClick={() => {props.setDataSeleccionada(b), handleOpenModal()}} className="job" key={index}>
                         <div className='job_info'>
                             <div className="job_img">
                                 <img src={b?.tbl_empresa?.empresa_foto} alt="" width={72} height={72} className="img-job" />
@@ -54,7 +55,7 @@ const Propuesta = (props) => {
                 ))
             }
                 <Modal isOpen={isOpen} onClose={handleCloseModal}>
-                    <ModalPropuestas pro={pro} />
+                    <ModalPropuestas dataSeleccionada={props.dataSeleccionada} pro={pro} />
                 </Modal>
         </div>
     )

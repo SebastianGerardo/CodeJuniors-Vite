@@ -1,5 +1,7 @@
 import { URL } from "./ApiUrl";
 
+
+
 export const crearEducacion = async(registro) => {
     try {
         const fetchResponse = await fetch(`${URL}/desarrollador_educacion`,

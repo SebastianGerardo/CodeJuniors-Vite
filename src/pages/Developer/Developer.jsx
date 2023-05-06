@@ -7,15 +7,17 @@ import { Outlet } from "react-router-dom";
 import ContextPage from "../../context/ContextPage";
 import { RaceBy } from "@uiball/loaders";
 import { AnimatePresence, motion } from 'framer-motion'
+import { verificarDesarrollador } from "../../helpers/ApiUsuario";
 
 const Developer = () => {
   const [loading, setLoading] = useState(true);
 
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    return () => clearTimeout(timeout);
+    verificarDesarrollador(token).then((res) => {
+      setLoading(false)
+    })
   }, []);
   
   return (
