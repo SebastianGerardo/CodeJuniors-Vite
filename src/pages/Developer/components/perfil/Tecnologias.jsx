@@ -4,7 +4,12 @@ import Modal from "../../../../components/Modal/Modal";
 import ModalTecnologias from "../modals/ModalTecnologias";
 
 const Tecnologias = (props) => {
+    const [tecnologiaSeleccionada, setTecnologiaSeleccionada] = useState({});
+
+
+
     const [ array, setArray ] = useState([]);
+
 
     const fetchTec = () => {
         setArray(props.tecnologia)
@@ -17,6 +22,7 @@ const Tecnologias = (props) => {
      };
     
      const handleCloseModal = () => {
+        setTecnologiaSeleccionada({})
        setIsOpen(false);
      };
 
@@ -24,6 +30,8 @@ const Tecnologias = (props) => {
 
     useEffect(()=>{
         fetchTec()
+        console.log(props.dataUsuario.tecnologias)
+        console.log(props.dataUsuario)
     }, [props.tecnologia] )
 
     return (
@@ -37,13 +45,15 @@ const Tecnologias = (props) => {
                 </div>
                 <div className="skills-icon">
                     {
-                        array.map((t)=>(
-                            <img key={t.icon} src={t.icon} alt={t.name} className="img-skill" />    
+                        props?.dataUsuario?.tecnologias && props?.dataUsuario?.tecnologias?.length > 0 && props?.dataUsuario?.tecnologias?.map((t, index)=>(
+                            <div key={index}>
+                                <img src={t.id_tecnologia.tecnologia_imagen} alt={t.id_tecnologia.tecnologia_nombre} className="img-skill w-10" />
+                            </div>
                         ))
                     }
                 </div>
                 <Modal isOpen={isOpen} onClose={handleCloseModal}>
-                    <ModalTecnologias />
+                    <ModalTecnologias handleRecargarTabla={props.handleRecargarTabla} handleCloseModal={handleCloseModal} dataUsuario={props.dataUsuario} tecnologiaSeleccionada={tecnologiaSeleccionada} />
                 </Modal>
             </div>
         </>

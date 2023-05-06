@@ -7,10 +7,11 @@ import Search from '../../components/Search/Search';
 import close from '../../../../assets/Developer/close.svg'
 import { Ping } from "@uiball/loaders";
 import { AnimatePresence, motion } from 'framer-motion'
+import {getTrabajos} from '../../../../helpers/ApiTrabajos'
 
 
 const PuestosTrabajos = () => {
-    const [ business, setBusiness ] = useState(ApiEmpresa);
+    const [ business, setBusiness ] = useState([]);
 
     const [loading, setLoading] = useState(true);
 
@@ -20,6 +21,15 @@ const PuestosTrabajos = () => {
         }, 1000);
         return () => clearTimeout(timeout);
     }, []);
+
+    useEffect(() => {
+        getTrabajos().then((data) => {
+            console.log(data)
+            setBusiness(data.content)
+        })
+    },[])
+
+    console.log(business)
 
 
 // *******************************

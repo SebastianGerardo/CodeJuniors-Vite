@@ -35,18 +35,18 @@ const Propuesta = (props) => {
                     <div className="job" onClick={handleOpenModal} key={index}>
                         <div className='job_info'>
                             <div className="job_img">
-                                <img src={b.logo_empresa} alt="" width={72} height={72} className="img-job" />
+                                <img src={b?.tbl_empresa?.empresa_foto} alt="" width={72} height={72} className="img-job" />
                             </div>
                             <div className="job_descr">
-                                <p className="p-descr">{b.nombre_empresa} </p>
-                                <h2 className='h2-cargo'>{b.puestos_trabajos[0].cargo_buscado} | {b.puestos_trabajos[0].nivel_dev}</h2>
-                                <p className="p-descr"><ion-icon name="wifi"></ion-icon> {b.puestos_trabajos[0].tipo_trabajo} | {b.puestos_trabajos[0].tiempo_trabajo} | {b.puestos_trabajos[0].sueldo_trabajo}</p>
+                                <p className="p-descr">{b.tbl_empresa?.empresa_nombre}</p>
+                                <h2 className='h2-cargo'>{b.trabajos_cargo} | {"Junior"}</h2>
+                                <p className="p-descr"><ion-icon name="wifi"></ion-icon> {b.trabajos_modalidad} | {b.trabajos_jornada} | {b.trabajos_salario}</p>
                             </div>
                         </div>
                         <div className="job_tec">
                             {
-                                b.puestos_trabajos[0].tecnologias.length && b.puestos_trabajos[0].tecnologias.map((t, index)=>(
-                                    <img src={t.icon} alt="" width={20} height={20} key={index} />
+                                b.tbl_trabajos_tecnologia.length && b.tbl_trabajos_tecnologia.map((t, index)=>(
+                                    <img src={t.tbl_tecnologia.tecnologia_imagen} alt="" width={20} height={20} key={index} />
                                 ))
                             }
                         </div>
@@ -54,7 +54,7 @@ const Propuesta = (props) => {
                 ))
             }
                 <Modal isOpen={isOpen} onClose={handleCloseModal}>
-                    <ModalPropuestas />
+                    <ModalPropuestas pro={pro} />
                 </Modal>
         </div>
     )

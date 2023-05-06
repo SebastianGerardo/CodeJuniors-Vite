@@ -11,7 +11,7 @@ import circleBottomLeft from '../../../../../assets/Developer/circle-bottom-left
 import close from '../../../../../assets/Developer/close.svg'
 import check from '../../../../../assets/Developer/check.svg'
 
-const ModalPropuestas = () => {
+const ModalPropuestas = ({pro}) => {
 
     const [showhidden, setShowhidden] = useState('hidden')
 
@@ -21,7 +21,7 @@ const ModalPropuestas = () => {
     }
 
     useEffect(()=>{
-        
+        console.log(pro)
     },[])
 
     return (
