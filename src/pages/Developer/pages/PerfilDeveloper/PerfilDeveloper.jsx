@@ -64,7 +64,7 @@ const Perfildeveloper = () => {
                                 <img src={developer_perfil} alt="" width={150} />
                                 <img src={dev.foto_perfil} alt="" className="photo-perfil" width={100} />
                             </div>
-                            <div className="flex flex-row w-full max-w-[1200px] max-[892px]:flex-col max-[892px]:mt-20 justify-center items-center">
+                            <div className="flex flex-row w-full max-w-[1200px] max-w-[892px]:flex-col max-w-[892px]:mt-20 justify-center">
                                 <div className="col mt-20">
                                     <InformacionDev dataUsuario={usuarioLogin} />
                                     <SobreMi dataUsuario={usuarioLogin} bio={dev.biografia} sob={sob} />

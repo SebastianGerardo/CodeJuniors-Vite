@@ -14,6 +14,7 @@ export const LoginDesarrollador = async(login) => {
         return data;
     }
     catch (error) {
+        console.log(error)
         return error;
     }
 }
@@ -27,6 +28,24 @@ export const verificarDesarrollador = async(bearer) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${bearer}`
             },
+        })
+        const data = await fetchResponse.json();
+        return data;
+    }
+    catch (error) {
+        return error;
+    }
+}
+export const updateDesarrollador = async(id, registro,bearer) => {
+    try {
+        const fetchResponse = await fetch(`${URL}/desarrollador/${id}`,
+        {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${bearer}`
+            },
+            body: JSON.stringify(registro)
         })
         const data = await fetchResponse.json();
         return data;

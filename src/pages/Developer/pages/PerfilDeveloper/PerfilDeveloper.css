@@ -192,8 +192,6 @@ ion-icon{
     .col{
         width:calc(100% - 40px);
         padding: 20px;
-        justify-content: center;
-        align-items: center;
     }
     .photo-perfil{
         position: absolute;

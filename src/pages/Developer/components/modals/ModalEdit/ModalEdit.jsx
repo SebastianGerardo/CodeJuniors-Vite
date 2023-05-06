@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { InputBasic } from '../../../../../components/Inputs/InputBasic';
 import './ModalEdit.css'
+import { updateDesarrollador } from '../../../../../helpers/ApiUsuario';
+import { UserContext } from '../../../../../context/ContextPage';
 
 const ModalEdit = ({handleCloseModal, dataUsuario}) => {
 
@@ -12,20 +14,29 @@ const ModalEdit = ({handleCloseModal, dataUsuario}) => {
         desarrollador_email: dataUsuario?.desarrollador_email || ''
     })
 
+    const token = localStorage.getItem('token')
+
+    const {handleRecargarTabla} = useContext(UserContext)
+
     const handleEdit = (e) => {
         e.preventDefault();
         handleCloseModal()
+        updateDesarrollador(dataUsuario?.id_desarrollador, formData,token).then((res) => {
+            console.log(res)
+            handleRecargarTabla()
+        })
     }
     const handleInputChange = (e) => {
+        const value = e.target.name == 'desarrollador_telefono' ? Number(e.target.value) : e.target.value
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [e.target.name]: value
         })
     }
 
     return(
         <div className="modal-editar">
-            <form onSubmit={handleEdit} className="flex flex-col gap-2">
+            <form className="flex flex-col gap-2">
                 <h2 className='text-2xl font-semibold'>Editar Perfil</h2>
                 <div className='grid grid-cols-2 gap-x-4 gap-y-2'>
                     <InputBasic 
@@ -72,8 +83,8 @@ const ModalEdit = ({handleCloseModal, dataUsuario}) => {
                     </div>
                 </div>
                 <div>
-                    <button className='btn btn-canelar mr-20px'>Cancelar</button>
-                    <button className='btn btn-actualizar'>Actualizar</button>
+                    <button className='btn btn-canelar mr-20px' onClick={(e)=>{e.preventDefault(),handleCloseModal()}}>Cancelar</button>
+                    <button className='btn btn-actualizar' onClick={handleEdit}>Actualizar</button>
                 </div>
             </form>
         </div>
