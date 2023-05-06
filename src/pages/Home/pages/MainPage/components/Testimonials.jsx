@@ -2,7 +2,7 @@ import React from 'react'
 
 const Testimonials = () => {
   return (
-    <div class="py-16 white">  
+    <div class="py-16 white scroll-smooth">  
     <div class="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
         <h2 class="mb-12 text-center text-2xl text-gray-900 font-bold md:text-4xl">Lo que dicen nuestros usuarios</h2>
         <div class="grid gap-8 md:grid-rows-2 lg:grid-cols-2">

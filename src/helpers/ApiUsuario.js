@@ -54,3 +54,40 @@ export const updateDesarrollador = async(id, registro,bearer) => {
         return error;
     }
 }
+
+export const registrarEmpresa = async(registro) => {
+    try {
+        const fetchResponse = await fetch(`${URL}/empresa`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(registro)
+        })
+        const data = await fetchResponse.json();
+        return data;
+    }
+    catch (error) {
+        console.log(error)
+        return error;
+    }
+}
+export const registrarDesarrollador = async(registro) => {
+    try {
+        const fetchResponse = await fetch(`${URL}/desarrollador`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(registro)
+        })
+        const data = await fetchResponse.json();
+        return data;
+    }
+    catch (error) {
+        console.log(error)
+        return error;
+    }
+}

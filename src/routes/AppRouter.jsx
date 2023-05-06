@@ -12,6 +12,8 @@ import Login from "../pages/Home/pages/Login/Login"
 import MainPage from "../pages/Home/pages/MainPage/MainPage"
 import { PrivateRouter } from "./PrivateRouter"
 import ContextPage from "../context/ContextPage"
+import RegistrarEmpresa from "../pages/Home/pages/Registrar/Empresa/RegistrarEmpresa"
+import RegistrarDesarrollador from "../pages/Home/pages/Registrar/Desarrollador/RegistrarDesarrollador"
 
 const AppRouter = () => {
   return (
@@ -35,6 +37,8 @@ const AppRouter = () => {
           </Route>
         </Route>
         <Route path="/login" element={<Login/>} />
+        <Route path="/registrar_empresa" element={<RegistrarEmpresa/>} />
+        <Route path="/registrar_desarrollador" element={<RegistrarDesarrollador/>} />
       </Routes>
     </BrowserRouter>
   )

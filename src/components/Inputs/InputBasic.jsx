@@ -7,6 +7,7 @@ export const InputBasic = ({
   placeholder,
   onChange,
   value = "",
+  required = false,
 }) => {
   return (
     <label className="w-full">
@@ -17,6 +18,7 @@ export const InputBasic = ({
         value={value}
         type={type}
         name={name}
+        required={required}
         autoComplete="off"
         placeholder={placeholder}
         onChange={onChange}
