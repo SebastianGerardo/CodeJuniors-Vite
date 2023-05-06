@@ -1,51 +1,53 @@
 import React, { useState } from 'react'
+import { Toast } from '../../../../components/Alertas/Toast'
 import { InputBasic } from '../../../../components/Inputs/InputBasic'
+import { ActualizarTecnologiaDesarrollador, CrearTecnologiaDesarrollador, EliminarTecnologiaDesarrollador } from '../../../../helpers/ApiCommon'
+import removeIcon from '../../../../assets/Icons/remove.svg'
+import Swal from 'sweetalert2'
 
-const ModalTecnologias = ({dataUsuario,tecnologiaSeleccionada,handleCloseModal,handleRecargarTabla}) => {
+const ModalTecnologias = ({tecnologias, dataUsuario,tecnologiaSeleccionada,handleCloseModal,handleRecargarTabla}) => {
 
   const [formData, setFormData] = useState({
-    id_tecnologia: tecnologiaSeleccionada?.id_tecnologia || "",
+    id_tecnologia: tecnologiaSeleccionada?.id_tecnologia?.id_tecnologia || "",
     id_desarrollador: dataUsuario?.id_desarrollador,
   })
 
-  console.log(formData)
+  console.log(tecnologiaSeleccionada)
 
   const validacionSeleccionado = Object.values(tecnologiaSeleccionada).length > 0 ? true : false
 
   const enviarData = (e) => {
       e.preventDefault()
       if(validacionSeleccionado) {
-          actualizarExperiencia(experienciaSeleccionada?.id_experiencia ,formData).then((res) => {
+        ActualizarTecnologiaDesarrollador(tecnologiaSeleccionada?.idtbl_desarrollador_tecnologia ,formData).then((res) => {
           console.log(res)
           if (res.status == true) {
             Toast.fire({
               icon: 'success',
-              title: 'Experiencia actualizada correctamente!'
+              title: 'Tecnologia actualizada correctamente!'
             })
             handleRecargarTabla()
             handleCloseModal()
           } else {
             Toast.fire({
               icon: 'error',
-              title: 'Ocurrió un error al actualizada la Experiencia'
+              title: 'Ocurrió un error al actualizada la Tecnologia'
             })
           }
         })
       } else {
-
-          crearExperiencia(formData).then((res) => {
-              console.log(experienciaSeleccionada?.desarrollador_foto)
+          CrearTecnologiaDesarrollador(formData).then((res) => {
           if (res.status == true) {
             Toast.fire({
               icon: 'success',
-              title: 'Experiencia creada correctamente!'
+              title: 'Tecnologia agregada exitósamente!'
             })
             handleRecargarTabla()
             handleCloseModal()
           } else {
             Toast.fire({
               icon: 'error',
-              title: 'Ocurrió un error al agregar un Experiencia'
+              title: 'Ocurrió un error al agregar una tecnologia'
             })
           }
         })
@@ -64,19 +66,19 @@ const ModalTecnologias = ({dataUsuario,tecnologiaSeleccionada,handleCloseModal,h
         cancelButtonText:'Cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-          eliminarExperiencia(experienciaSeleccionada?.id_experiencia).then((res) => {
+          EliminarTecnologiaDesarrollador(tecnologiaSeleccionada?.idtbl_desarrollador_tecnologia).then((res) => {
             console.log(res)
             if(res.status == true) {
               Toast.fire({
                 icon: 'success',
-                title: 'Educación eliminada correctamente!'
+                title: 'Tecnologia eliminada correctamente!'
               })
               handleRecargarTabla()
               handleCloseModal()
             } else {
               Toast.fire({
                 icon: 'error',
-                title: 'Ocurrió un error al eliminar la educación'
+                title: 'Ocurrió un error al eliminar la Tecnologia'
               })
             }
           })
@@ -87,7 +89,7 @@ const ModalTecnologias = ({dataUsuario,tecnologiaSeleccionada,handleCloseModal,h
     const handleChange = (e) => {
       setFormData({
         ...formData,
-        [e.target.name]: e.target.value,
+        [e.target.name]: Number(e.target.value),
       })
     }
 
@@ -101,26 +103,21 @@ const ModalTecnologias = ({dataUsuario,tecnologiaSeleccionada,handleCloseModal,h
             </span>
             )}
         </div>
-        <form action="" className='grid grid-cols-2 gap-4'>
+        <form action="" className='grid grid-cols-1 gap-4'>
             <label className="w-full">
               <span className="text-start block text-sm font-medium text-gray-400">
                 Seleccione la red Social
               </span>
               <select
-                value={"value"}
-                type={"type"}
-                name={"name"}
-                autoComplete="off"
-                placeholder={"placeholder"}
+                name={"id_tecnologia"}
                 onChange={handleChange}
+                defaultValue={formData?.id_tecnologia}
                 className="block w-full  rounded-md sm:text-sm mt-1 px-4 py-3 bg-[#F3F6F9] transition-all ease-in-out duration-150 border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none outline-none focus:bg-[#EBEDF3]"
               >
-                <option value="1">HTML</option>
-                <option value="2">CSS</option>
-                <option value="3">React</option>
-                <option value="4">Angular</option>
-                <option value="5">Node.js</option>
-                <option value="6">c#</option>
+                <option value="1">Seleccione una tecnologia</option>
+                {tecnologias.map((tecnologia) => (
+                  <option key={tecnologia.id_tecnologia} value={tecnologia.id_tecnologia}>{tecnologia.tecnologia_nombre}</option>
+                ))}
               </select>
             </label>
             

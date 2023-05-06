@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
 import editIcon from '../../../../assets/Icons/edit.svg'
 import Modal from "../../../../components/Modal/Modal";
+import { TraeTecnologias } from "../../../../helpers/ApiCommon";
 import ModalTecnologias from "../modals/ModalTecnologias";
 
 const Tecnologias = (props) => {
     const [tecnologiaSeleccionada, setTecnologiaSeleccionada] = useState({});
+    const [tecnologias, setTecnologias] = useState([]);
 
-
-
-    const [ array, setArray ] = useState([]);
-
-
-    const fetchTec = () => {
-        setArray(props.tecnologia)
-    }
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenModal = () => {
@@ -26,13 +20,11 @@ const Tecnologias = (props) => {
        setIsOpen(false);
      };
 
-
-
-    useEffect(()=>{
-        fetchTec()
-        console.log(props.dataUsuario.tecnologias)
-        console.log(props.dataUsuario)
-    }, [props.tecnologia] )
+     useEffect(() => {
+        TraeTecnologias().then((res) => {
+            setTecnologias(res.content)
+        })
+     }, [])
 
     return (
         <>
@@ -43,17 +35,17 @@ const Tecnologias = (props) => {
                         <img src={editIcon} alt="Editar" className=""/>
                     </span>
                 </div>
-                <div className="skills-icon">
+                <div className="ml-2 flex gap-4 flex-wrap">
                     {
                         props?.dataUsuario?.tecnologias && props?.dataUsuario?.tecnologias?.length > 0 && props?.dataUsuario?.tecnologias?.map((t, index)=>(
-                            <div key={index}>
-                                <img src={t.id_tecnologia.tecnologia_imagen} alt={t.id_tecnologia.tecnologia_nombre} className="img-skill w-10" />
+                            <div className="cursor-pointer w-10 h-10 " onClick={() => {setTecnologiaSeleccionada(t), handleOpenModal()}} key={index}>
+                                <img src={t.id_tecnologia.tecnologia_imagen} alt={t.id_tecnologia.tecnologia_nombre} className="w-full h-full object-contain" />
                             </div>
                         ))
                     }
                 </div>
                 <Modal isOpen={isOpen} onClose={handleCloseModal}>
-                    <ModalTecnologias handleRecargarTabla={props.handleRecargarTabla} handleCloseModal={handleCloseModal} dataUsuario={props.dataUsuario} tecnologiaSeleccionada={tecnologiaSeleccionada} />
+                    <ModalTecnologias tecnologias={tecnologias} handleRecargarTabla={props.handleRecargarTabla} handleCloseModal={handleCloseModal} dataUsuario={props.dataUsuario} tecnologiaSeleccionada={tecnologiaSeleccionada} />
                 </Modal>
             </div>
         </>
