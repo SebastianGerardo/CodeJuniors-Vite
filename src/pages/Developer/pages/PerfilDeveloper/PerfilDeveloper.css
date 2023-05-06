@@ -189,9 +189,6 @@ ion-icon{
         justify-content: center;
         align-items: center;
     }
-    .skills{
-        margin-bottom: 70px;
-    }
     .col{
         width:calc(100% - 40px);
         padding: 20px;

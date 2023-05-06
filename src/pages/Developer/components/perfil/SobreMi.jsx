@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import editIcon from '../../../../assets/Icons/edit.svg'
 import Modal from "../../../../components/Modal/Modal";
 import ModalSobreMi from "../modals/ModalSobreMi";
+import SocialIcons from "../../../../components/SocialIcons/SocialIcons";
 
 const SobreMi = (props) => {
-    const [ sob, setSob ] = useState([]);
-
-    console.log(props.dataUsuario);
 
     const [isOpen, setIsOpen] = useState(false);
+    const { redes } = SocialIcons();
 
     const handleOpenModal = () => {
         setIsOpen(true);
@@ -17,16 +16,6 @@ const SobreMi = (props) => {
      const handleCloseModal = () => {
        setIsOpen(false);
      };
-
-
-
-    const fetchSob = () => {
-        setSob(props.sob);
-    }
-
-    useEffect(()=>{
-        fetchSob();
-    },[props.sob,props.bio])
 
     return(
         <div className="about-me card">
@@ -37,12 +26,17 @@ const SobreMi = (props) => {
                 </span>
             </div>
             <p className="p">{props.dataUsuario?.desarrollador_descripcion}</p>
-            {
-                sob.length > 0 && sob.map((s,index)=>(
-                    <a key={index} href={s.link} target="_blank" className="link"><ion-icon name={s.web}></ion-icon> @{s.name} </a>
-                ))
-            }
-
+            <ul className='flex items-center flex-wrap w-full gap-5'>
+                {
+                    props.dataUsuario.redes && props.dataUsuario?.redes.length > 0 && props.dataUsuario?.redes.map((red,index)=>(
+                        <li className='flex items-center justify-center' key={index}>
+                            <a href={red.desarrollador_redes_url} target="_blank">
+                                <img className='red-icon-company' src={redes[red?.id_redes?.redes_redes] || "N/A"} alt=''/>
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
             <Modal isOpen={isOpen} onClose={handleCloseModal}>
                 <ModalSobreMi />
             </Modal>

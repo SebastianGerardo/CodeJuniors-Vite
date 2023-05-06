@@ -64,13 +64,13 @@ const Perfildeveloper = () => {
                                 <img src={developer_perfil} alt="" width={150} />
                                 <img src={dev.foto_perfil} alt="" className="photo-perfil" width={100} />
                             </div>
-                            <div className="flex flex-row w-full max-w-[1200px] justify-center">
+                            <div className="flex flex-row w-full max-w-[1200px] max-[892px]:flex-col max-[892px]:mt-20 justify-center items-center">
                                 <div className="col mt-20">
                                     <InformacionDev dataUsuario={usuarioLogin} />
                                     <SobreMi dataUsuario={usuarioLogin} bio={dev.biografia} sob={sob} />
                                 </div>
                                 <div className='w-10'></div>
-                                <div className="col">
+                                <div className="col max-[1450px]:mb-20">
                                     <Educacion handleRecargarTabla={handleRecargarTabla} dataUsuario={usuarioLogin} educacion={edu} />
                                     <Experiencia experiencia={exp} />
                                     <Tecnologias tecnologia={tec} /> 

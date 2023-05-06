@@ -6,6 +6,7 @@ import linkedin_logo from '../../assets/Perfil/linkedin.png'
 import github_logo from '../../assets/Perfil/github.png'
 import web_logo from '../../assets/Perfil/web.png'
 import whatsapp_logo from '../../assets/Perfil/whatsapp.png'
+import youtube_logo from '../../assets/Perfil/youtube.png'
 
 const SocialIcons = () => {
     const redes = {
@@ -15,7 +16,8 @@ const SocialIcons = () => {
         "linkedin": linkedin_logo,
         "github": github_logo,
         "web": web_logo,
-        "whatsapp": whatsapp_logo
+        "whatsapp": whatsapp_logo,
+        "youtube" : youtube_logo
       }
   return {
     redes
