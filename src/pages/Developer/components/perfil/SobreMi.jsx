@@ -6,6 +6,8 @@ import SocialIcons from "../../../../components/SocialIcons/SocialIcons";
 
 const SobreMi = (props) => {
 
+    const [experienciaSeleccionada, setExperienciaSeleccionada] = useState({})
+
     const [isOpen, setIsOpen] = useState(false);
     const { redes } = SocialIcons();
 
@@ -14,6 +16,7 @@ const SobreMi = (props) => {
      };
     
      const handleCloseModal = () => {
+        setExperienciaSeleccionada({})
        setIsOpen(false);
      };
 
@@ -38,7 +41,7 @@ const SobreMi = (props) => {
                 }
             </ul>
             <Modal isOpen={isOpen} onClose={handleCloseModal}>
-                <ModalSobreMi />
+                <ModalSobreMi experienciaSeleccionada={experienciaSeleccionada} />
             </Modal>
         </div>
     )

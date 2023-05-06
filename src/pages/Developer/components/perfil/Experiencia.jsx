@@ -29,7 +29,6 @@ const Experiencia = (props) => {
 
     useEffect( ()=>{
         fetchExp()
-        console.log("props.dataUsuario", props.dataUsuario)
     }, [props.dataUsuario] )
 
     return (
@@ -49,7 +48,7 @@ const Experiencia = (props) => {
                                     <h3 key={e.id_experiencia}><ion-icon name="business"></ion-icon> {e.experiencia_empresa}</h3>
                                     <p className="p"><ion-icon name="calendar"></ion-icon> {e.experiencia_finicio}</p>
                                 </div>
-                                <p className="p">experiencia_cargo</p>
+                                <p className="p">{e.experiencia_cargo}</p>
                             </div>
                             <img src={e.experiencia_logo} alt="" className="photo-business" height={57} width={57} />
                         </div>

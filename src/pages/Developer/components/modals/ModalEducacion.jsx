@@ -10,7 +10,7 @@ const ModalEducacion = ({dataUsuario, educacionSeleccionada, handleCloseModal, h
     institucion: educacionSeleccionada?.educacion_institucion || "",
     carrera: educacionSeleccionada?.educacion_carrera || "",
     certificado: educacionSeleccionada?.educacion_certificado || "",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Seal_of_Pontifical_Catholic_University_of_Peru.svg/1200px-Seal_of_Pontifical_Catholic_University_of_Peru.svg.png",
+    logo: "https://cdn-icons-png.flaticon.com/512/5404/5404967.png",
     id_desarrollador: dataUsuario?.id_desarrollador,
   })
 

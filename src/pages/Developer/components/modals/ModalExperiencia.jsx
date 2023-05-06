@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
+import { Toast } from '../../../../components/Alertas/Toast'
+import Swal from 'sweetalert2'
 import { InputBasic } from '../../../../components/Inputs/InputBasic'
 import removeIcon from '../../../../assets/Icons/remove.svg'
 import { actualizarExperiencia, crearExperiencia, eliminarExperiencia } from '../../../../helpers/ApiExperiencia'
 
-const ModalExperiencia = ({dataUsuario,experienciaSeleccionada}) => {
+const ModalExperiencia = ({dataUsuario,experienciaSeleccionada,handleCloseModal,handleRecargarTabla}) => {
 
     const [formData, setFormData] = useState({
         empresa: experienciaSeleccionada?.experiencia_empresa || "",
         cargo: experienciaSeleccionada?.experiencia_cargo || "",
         fecha_inicio: experienciaSeleccionada?.experiencia_finicio || "",
-        logo: "https://cdn-icons-png.flaticon.com/512/4091/4091450.png",
+        fecha_fin: experienciaSeleccionada?.experiencia_ffin || "",
+        logo: experienciaSeleccionada?.experiencia_logo || "",
         id_desarrollador: dataUsuario?.id_desarrollador,
     })
+
+    console.log(experienciaSeleccionada)
 
     const validacionSeleccionado = Object.values(experienciaSeleccionada).length > 0 ? true : false
 
@@ -23,31 +28,32 @@ const ModalExperiencia = ({dataUsuario,experienciaSeleccionada}) => {
             if (res.status == true) {
               Toast.fire({
                 icon: 'success',
-                title: 'Educación actualizada correctamente!'
+                title: 'Experiencia actualizada correctamente!'
               })
               handleRecargarTabla()
               handleCloseModal()
             } else {
               Toast.fire({
                 icon: 'error',
-                title: 'Ocurrió un error al actualizada la educación'
+                title: 'Ocurrió un error al actualizada la Experiencia'
               })
             }
           })
         } else {
-          crearEducacion(formData).then((res) => {
-            console.log(res)
+
+            crearExperiencia(formData).then((res) => {
+                console.log(experienciaSeleccionada?.desarrollador_foto)
             if (res.status == true) {
               Toast.fire({
                 icon: 'success',
-                title: 'Educación creada correctamente!'
+                title: 'Experiencia creada correctamente!'
               })
               handleRecargarTabla()
               handleCloseModal()
             } else {
               Toast.fire({
                 icon: 'error',
-                title: 'Ocurrió un error al crear la educación'
+                title: 'Ocurrió un error al agregar un Experiencia'
               })
             }
           })
@@ -103,7 +109,7 @@ const ModalExperiencia = ({dataUsuario,experienciaSeleccionada}) => {
                 </span>
                 )}
             </div>
-            <form onSubmit={enviarData} action="" className='grid grid-cols-2 gap-4'>
+            <form action="" className='grid grid-cols-2 gap-4'>
                 <InputBasic
                     label='Nombre de la Empresa'
                     placeholder='Escribe el nombre de la Empresa'
@@ -120,15 +126,6 @@ const ModalExperiencia = ({dataUsuario,experienciaSeleccionada}) => {
                 />
                 <div>
                     <InputBasic
-                    label='logo de la empresa'
-                    placeholder='Ingresa el url logo de la empresa'
-                    name='logo'
-                    value={formData?.logo}
-                    onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <InputBasic
                     label='Fecha de inicio'
                     placeholder='Ingresa la fecha de inicio'
                     type='date'
@@ -137,8 +134,28 @@ const ModalExperiencia = ({dataUsuario,experienciaSeleccionada}) => {
                     onChange={handleChange}
                     />
                 </div>
+                <div>
+                    <InputBasic
+                    label='Fecha de fin'
+                    placeholder='Ingresa la fecha de fin'
+                    type='date'
+                    name='fecha_fin'
+                    value={formData?.fecha_fin}
+                    onChange={handleChange}
+                    />
+                </div>
+                <div className='col-span-2'>
+                    <InputBasic
+                    label='logo de la empresa'
+                    placeholder='Ingresa el url logo de la empresa'
+                    name='logo'
+                    value={formData?.logo}
+                    onChange={handleChange}
+                    />
+                </div>
                 <div className='col-span-2 flex justify-center'>
                     <button
+                    onClick={enviarData}
                     className="flex w-max gap-2 items-center cursor-pointer bg-[#E1F0FF] text-[#3699FF] hover:bg-[#3699FF] hover:text-white h-12 transition-all duration-150 font-medium py-2 px-4 rounded"
                     >
                     Guardar

@@ -40,7 +40,7 @@ const Perfildeveloper = () => {
 
     useEffect( () => {
         fetchDev("developers");
-    }, [] )
+    }, [usuarioLogin] )
 
     return (
         <>
@@ -62,7 +62,7 @@ const Perfildeveloper = () => {
                             <div className="header-dev ">
                                 <h2 className='banner-h2 w-max'>Personaliza tu perfil con todas las habilidades que tienes para mostrar</h2>
                                 <img src={developer_perfil} alt="" width={150} />
-                                <img src={dev.foto_perfil} alt="" className="photo-perfil" width={100} />
+                                <img src={usuarioLogin.desarrollador_foto} alt="" className="photo-perfil" width={100} />
                             </div>
                             <div className="flex flex-row w-full max-w-[1200px] max-w-[892px]:flex-col max-w-[892px]:mt-20 justify-center">
                                 <div className="col mt-20">

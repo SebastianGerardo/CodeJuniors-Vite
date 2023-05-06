@@ -11,7 +11,8 @@ const ModalEdit = ({handleCloseModal, dataUsuario}) => {
         desarrollador_apellido: dataUsuario?.desarrollador_apellido || '',
         desarrollador_cargo: dataUsuario?.desarrollador_cargo || '',
         desarrollador_telefono: dataUsuario?.desarrollador_telefono || '',
-        desarrollador_email: dataUsuario?.desarrollador_email || ''
+        desarrollador_email: dataUsuario?.desarrollador_email || '',
+        desarrollador_foto: dataUsuario?.desarrollador_foto || '',
     })
 
     const token = localStorage.getItem('token')
@@ -79,6 +80,16 @@ const ModalEdit = ({handleCloseModal, dataUsuario}) => {
                         placeholder = "Editar telefono"
                         onChange={handleInputChange}
                         value={formData?.desarrollador_email}
+                        />
+                    </div>
+                    <div className='col-span-2'>
+                        <InputBasic 
+                        label="Foto de perfil"
+                        type = "text"
+                        name = "desarrollador_foto"
+                        placeholder = "Editar foto de perfil"
+                        onChange={handleInputChange}
+                        value={formData?.desarrollador_foto}
                         />
                     </div>
                 </div>
