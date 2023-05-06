@@ -11,7 +11,9 @@ const Business = () => {
     <ContextPage>
       <div className='flex'>
           <Menu LinksMenu={LinksBusiness} />
-          <Outlet />
+          <div className='w-full'>
+            <Outlet />
+          </div>
       </div>
     </ContextPage>
   )

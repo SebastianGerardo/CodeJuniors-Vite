@@ -6,7 +6,7 @@ export const UserContext = createContext()
 
 const ContextPage = ({children}) => {
   const token = localStorage.getItem("token")
-  const [usuarioLogin, setUsuarioLogin] = useState([])
+  const [usuarioLogin, setUsuarioLogin] = useState({})
   const [recargarTabla, setRecargarTabla] = useState(false)
   const navigate = useNavigate()
 
