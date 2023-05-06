@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './PerfilSocialCompany.css'
-import fb_logo from '../../../../../../assets/Perfil/facebook.png'
-import twitter_logo from '../../../../../../assets/Perfil/twitter.png'
-import ig_logo from '../../../../../../assets/Perfil/instagram.png'
-import linkedin_logo from '../../../../../../assets/Perfil/linkedin.png'
-import github_logo from '../../../../../../assets/Perfil/github.png'
-import web_logo from '../../../../../../assets/Perfil/web.png'
-import whatsapp_logo from '../../../../../../assets/Perfil/whatsapp.png'
 import editIcon from '../../../../../../assets/Icons/edit.svg'
 import ModalSocial from '../../modals/ModalSocial'
 import Modal from '../../../../../../components/Modal/Modal'
+import SocialIcons from '../../../../../../components/SocialIcons/SocialIcons'
 
 export default function PerfilSocialCompany(props) {
 
@@ -25,16 +19,8 @@ export default function PerfilSocialCompany(props) {
         // setDataSeleccionada({});
        setIsOpen(false);
      };
-
-  const redes = {
-    "Instagram": ig_logo,
-    "Twitter": twitter_logo,
-    "Facebook": fb_logo,
-    "LinkedIn": linkedin_logo,
-    "GitHub": github_logo,
-    "Web": web_logo,
-    "WhatsApp": whatsapp_logo
-  }
+    const {redes} = SocialIcons()
+  
 
   console.log(props.dataUsuario)
 
