@@ -20,9 +20,6 @@ export default function PerfilSocialCompany(props) {
        setIsOpen(false);
      };
     const {redes} = SocialIcons()
-  
-
-  console.log(props.dataUsuario)
 
   return (
     <div className='social-company justify-evenly'>

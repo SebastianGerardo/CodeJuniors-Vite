@@ -15,15 +15,6 @@ export default function PerfilBusiness() {
 
   console.log(usuarioLogin)
 
-//   const fetchDataEmp = async(data) => {
-//     const response = await DataDevCom(mn, data)
-//     setDataEmp(response[0]);
-//   }
-
-//   useEffect(() => {
-//     fetchDataEmp("business")
-//   }, [])
-
   const propsData = {
     dataUsuario: usuarioLogin,
     handleRecargarTabla: handleRecargarTabla

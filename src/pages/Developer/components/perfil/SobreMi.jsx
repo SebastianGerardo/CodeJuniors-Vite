@@ -3,6 +3,9 @@ import editIcon from '../../../../assets/Icons/edit.svg'
 import Modal from "../../../../components/Modal/Modal";
 import ModalSobreMi from "../modals/ModalSobreMi";
 import SocialIcons from "../../../../components/SocialIcons/SocialIcons";
+import RedesSociales from "./RedesSociales";
+import { useContext } from "react";
+import { UserContext } from "../../../../context/ContextPage";
 
 const SobreMi = (props) => {
 
@@ -10,6 +13,8 @@ const SobreMi = (props) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const { redes } = SocialIcons();
+
+    const { handleRecargarTabla } = useContext(UserContext)
 
     const handleOpenModal = () => {
         setIsOpen(true);
@@ -29,19 +34,9 @@ const SobreMi = (props) => {
                 </span>
             </div>
             <p className="p">{props.dataUsuario?.desarrollador_descripcion}</p>
-            <ul className='flex items-center flex-wrap w-full gap-5'>
-                {
-                    props.dataUsuario.redes && props.dataUsuario?.redes.length > 0 && props.dataUsuario?.redes.map((red,index)=>(
-                        <li className='flex items-center justify-center' key={index}>
-                            <a href={red.desarrollador_redes_url} target="_blank">
-                                <img className='red-icon-company' src={redes[red?.id_redes?.redes_redes] || "N/A"} alt=''/>
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
+            {/* <RedesSociales dataUsuario={props.dataUsuario} /> */}
             <Modal isOpen={isOpen} onClose={handleCloseModal}>
-                <ModalSobreMi experienciaSeleccionada={experienciaSeleccionada} />
+                <ModalSobreMi handleCloseModal={handleCloseModal} handleRecargarTabla={handleRecargarTabla} dataUsuario={props.dataUsuario} experienciaSeleccionada={experienciaSeleccionada} />
             </Modal>
         </div>
     )
