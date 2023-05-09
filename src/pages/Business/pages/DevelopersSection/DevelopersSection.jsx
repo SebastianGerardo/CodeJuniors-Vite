@@ -2,11 +2,12 @@ import React from 'react'
 import './DevelopersSection.css'
 import './SearchDevelopers.css'
 import { useState, useEffect } from 'react'
+import Perfildeveloper from '../../DevPerfil/PerfilDeveloper/PerfilDeveloper';
 // import { DataComDev } from '../../../../services/Company/DataComDevs'
 // import PerfildeveloperCompany from '../../Developers/Perfil/PerfilDeveloperCompany'
 
 export default function DevelopersSection(props) {
-  const [ data, setData ] = useState([]);
+  const [ data, setData ] = useState([{}]);
   const [ modal, setModal ] = useState(false);
   const [ userEmail, setUserEmail ]= useState("")
   const [ tecnology, setTecnology ] = useState([])
@@ -72,9 +73,9 @@ export default function DevelopersSection(props) {
               <div className='users-cards-main'>
                 <h1>{event.nombre} {event.apellido}</h1>
                 <h2 className='users-card-charge'>{event.cargo}</h2>
-                  <div className='tecnologies-user'>{event.tecnologia.length > 0 && event.tecnologia.map((element) => (
+                  {/* <div className='tecnologies-user'>{event.tecnologia.length > 0 && event.tecnologia.map((element) => (
                     <img src={element.icon} alt='icon-tecnologies' className='icon-tc'/>
-                  ))}</div>  
+                  ))}</div>   */}
               </div>
 
               <div className='users-cards-footer'>
@@ -90,6 +91,7 @@ export default function DevelopersSection(props) {
         <div className={`background-modal ${modal && 'activeBackground-modal'}`} onClick={() => setModal(!modal)}></div>
         <section className={`dev-users_modal ${modal && 'activeDev-users_modal'}`}>
           {/* <PerfildeveloperCompany email={userEmail}/> */}
+          <Perfildeveloper />
         </section>
       </section>
     </section>

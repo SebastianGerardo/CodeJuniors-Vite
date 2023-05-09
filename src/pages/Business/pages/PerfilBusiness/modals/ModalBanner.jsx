@@ -1,54 +1,33 @@
 import React, { useState } from 'react'
+import { Toast } from '../../../../../components/Alertas/Toast'
 import { InputBasic } from '../../../../../components/Inputs/InputBasic'
+import { actualizarEmpresa } from '../../../../../helpers/ApiEmpresa'
 
-const ModalBanner = () => {
+const ModalBanner = (props) => {
     const [formData, setFormData] = useState({
-        // institucion: educacionSeleccionada?.educacion_institucion || "",
-        // carrera: educacionSeleccionada?.educacion_carrera || "",
-        // certificado: educacionSeleccionada?.educacion_certificado || "",
-        // logo: "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Seal_of_Pontifical_Catholic_University_of_Peru.svg/1200px-Seal_of_Pontifical_Catholic_University_of_Peru.svg.png",
-        // id_desarrollador: dataUsuario?.id_desarrollador,
+        empresa_foto: props.dataUsuario?.empresa_foto || "",
       })
-    
-    //   const validacionSeleccionado = Object.values(educacionSeleccionada).length > 0 ? true : false
     
       const enviarData = (e) => {
         e.preventDefault()
-        // if(validacionSeleccionado) {
-        //   actualizarEducacion(educacionSeleccionada?.id_educacion ,formData).then((res) => {
-        //     console.log(res)
-        //     if (res.status == true) {
-        //       Toast.fire({
-        //         icon: 'success',
-        //         title: 'Educación actualizada correctamente!'
-        //       })
-        //       handleRecargarTabla()
-        //       handleCloseModal()
-        //     } else {
-        //       Toast.fire({
-        //         icon: 'error',
-        //         title: 'Ocurrió un error al actualizada la educación'
-        //       })
-        //     }
-        //   })
-        // } else {
-        //   crearEducacion(formData).then((res) => {
-        //     console.log(res)
-        //     if (res.status == true) {
-        //       Toast.fire({
-        //         icon: 'success',
-        //         title: 'Educación creada correctamente!'
-        //       })
-        //       handleRecargarTabla()
-        //       handleCloseModal()
-        //     } else {
-        //       Toast.fire({
-        //         icon: 'error',
-        //         title: 'Ocurrió un error al crear la educación'
-        //       })
-        //     }
-        //   })
-        // }
+        
+          actualizarEmpresa(props.dataUsuario?.id_empresa ,formData).then((res) => {
+            console.log(res)
+            if (res.status == true) {
+              Toast.fire({
+                icon: 'success',
+                title: 'La foto se actualizó correctamente!'
+              })
+              props.handleRecargarTabla()
+              props.handleCloseModal()
+            } else {
+              Toast.fire({
+                icon: 'error',
+                title: 'Ocurrió un error al actualizar la foto'
+              })
+            }
+          })
+        
       }
     
       const handleChange = (e) => {
@@ -57,69 +36,19 @@ const ModalBanner = () => {
           [e.target.name]: e.target.value,
         })
       }
-    
-      const eliminar = () => {
-        Swal.fire({
-          title: '¿Estás seguro?',
-          text: "Esta acción no se podrá revertir!",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Sí, eliminar!',
-          cancelButtonText:'Cancelar'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            eliminarEducacion(educacionSeleccionada?.id_educacion).then((res) => {
-              console.log(res)
-              if(res.status == true) {
-                Toast.fire({
-                  icon: 'success',
-                  title: 'Educación eliminada correctamente!'
-                })
-                handleRecargarTabla()
-                handleCloseModal()
-              } else {
-                Toast.fire({
-                  icon: 'error',
-                  title: 'Ocurrió un error al eliminar la educación'
-                })
-              }
-            })
-          }
-        })
-      }
+  
   return (
     <div className='w-[52rem] p-8 pt-4 flex flex-col gap-y-2'>
       <div className='flex justify-between items-center'>
         <span className='py-2 text-lg font-medium'>{true ? "Editar" : "Crear"} educación</span>
-        {/* {validacionSeleccionado && (
-          <span onClick={eliminar} className='cursor-pointer'>
-            <img src={removeIcon} alt="" />
-          </span>
-        )} */}
       </div>
       <form onSubmit={enviarData} action="" className='grid grid-cols-2 gap-4'>
-          <InputBasic
-            label='Institucion'
-            placeholder='Escribe el nombre de la institución'
-            name='institucion'
-            value={formData?.institucion}
-            onChange={handleChange}
-          />
-          <InputBasic
-            label='Carrera'
-            placeholder='Escribe la carrera que estudió'
-            name='carrera'
-            value={formData?.carrera}
-            onChange={handleChange}
-          />
           <div className='col-span-2'>
             <InputBasic
-              label='Certificado (opcional)'
-              placeholder='Ingresa la url de tu certificado'
-              name='certificado'
-              value={formData?.certificado}
+              label='Foto (URL)'
+              placeholder='Ingresa la url de tu foto'
+              name='empresa_foto'
+              value={formData?.empresa_foto}
               onChange={handleChange}
             />
           </div>

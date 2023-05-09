@@ -1,0 +1,106 @@
+
+.modal-container{
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    min-width: 350px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 34px;
+    z-index: 1;
+
+    cursor: default;
+    overflow: hidden;
+}
+
+.seperador{
+    border-right: 1px solid #0000002e;
+    margin-right: 12px;
+}
+
+.btn-postular{
+    width: 120px;
+    height: 37px;
+    border-radius: 8px;
+    border: none;
+    background-color: #10828C;
+    color: #fff;
+    font-weight: bold;
+}
+.btn-postular:hover{
+    background-color: #128b96;
+}
+.btn-postular:active{
+    background-color: #0e727b;
+}
+
+.transicion-escala{
+    transition: .3s;
+}
+.transicion-escala:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+}
+.transicion-escala:active{
+    transform: scale(0.95);
+}
+
+
+/* **************************** */
+/* CICLE STYLE */
+.cicle-TopRight{
+    position: absolute;
+    top: 0;
+    right: 180px;
+}
+.cicle-BottomRight{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.cicle-BottomLeft{
+    position: absolute;
+    bottom: 0;
+    left: 40px;
+}
+
+/* **************************** */
+/* ALERT BUTTON POSTULAR */
+.alertShow{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    transition: .3s;
+}
+.alertHidden{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -61px;
+    z-index: 999;
+    transition: .3s;
+}
+.alert{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    animation: slide-down ease 4s;
+}
+@keyframes slide-down {
+    0% {
+      transform: translateY(-100%);
+    }
+    20%{
+        transform: translateY(0);
+    }
+    80%{
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}

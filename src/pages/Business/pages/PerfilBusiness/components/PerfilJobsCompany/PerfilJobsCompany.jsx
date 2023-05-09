@@ -49,7 +49,7 @@ const PerfilJobsCompany = (props) => {
         </section>
         {/* MODAL */}
         <Modal isOpen={isOpen} onClose={handleCloseModal}>
-          <ModalJobs handleRecargarTabla={props.handleRecargarTabla} handleCloseModal={handleCloseModal} dataSeleccionada={dataSeleccionada} dataUsuario={props.props?.dataUsuario} />
+          <ModalJobs handleRecargarTabla={props.handleRecargarTabla} handleCloseModal={handleCloseModal} dataSeleccionada={dataSeleccionada} dataUsuario={props.dataUsuario} />
         </Modal>
     </section>
   )

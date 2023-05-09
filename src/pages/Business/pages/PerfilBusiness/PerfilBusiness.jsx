@@ -13,8 +13,6 @@ export default function PerfilBusiness() {
 
   const {usuarioLogin, handleRecargarTabla} = useContext(UserContext)
 
-  console.log(usuarioLogin)
-
   const propsData = {
     dataUsuario: usuarioLogin,
     handleRecargarTabla: handleRecargarTabla

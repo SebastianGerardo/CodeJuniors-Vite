@@ -16,13 +16,13 @@ export default function PerfilSocialCompany(props) {
      };
     
      const handleCloseModal = () => {
-        // setDataSeleccionada({});
+        setDataSeleccionada({});
        setIsOpen(false);
      };
     const {redes} = SocialIcons()
 
   return (
-    <div className='social-company justify-evenly'>
+    <div className='social-company justify-start pt-2'>
         <section className='company-info-description'>
             <div className='flex justify-between items-center'>
               <div className='info-description_sector'>
@@ -39,7 +39,7 @@ export default function PerfilSocialCompany(props) {
               <p>{props.dataUsuario?.empresa_ubicacion}</p>
             </div>
         </section>
-        <nav className='social-nav-company'>
+        {/* <nav className='social-nav-company'>
             <ul className=' grid grid-cols-4 justify-center'>
                 {props.dataUsuario?.redes && props.dataUsuario?.redes?.length > 0 && props.dataUsuario?.redes?.map((red, index) => (
                   <li className='flex items-center justify-center' key={index}>
@@ -50,7 +50,7 @@ export default function PerfilSocialCompany(props) {
                 ))}
                 <li onClick={handleOpenModal} className='flex items-center justify-center'><div className='add-social-company' >+</div></li>
             </ul>
-        </nav>
+        </nav> */}
         {/* <ModalRedes /> */}
         <Modal isOpen={isOpen} onClose={handleCloseModal}>
           <ModalSocial handleRecargarTabla={props.handleRecargarTabla} handleCloseModal={handleCloseModal} dataSeleccionada={dataSeleccionada} dataUsuario={props.dataUsuario} />

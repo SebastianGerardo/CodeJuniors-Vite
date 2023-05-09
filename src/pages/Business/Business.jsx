@@ -54,12 +54,12 @@ const LinksBusiness = [
       link: '/business',
       icon: user
   },
-  {
-      id: 2,
-      nombre: 'Desarrolladores',
-      link: '/business/developers',
-      icon: developer
-  },
+  // {
+  //     id: 2,
+  //     nombre: 'Desarrolladores',
+  //     link: '/business/developers',
+  //     icon: developer
+  // },
   {
       id: 3,
       nombre: 'Notificaciones',

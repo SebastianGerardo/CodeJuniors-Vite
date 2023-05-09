@@ -4,6 +4,7 @@ import editIcon from '../../../../../../assets/Icons/edit.svg'
 import ModalMain from '../../modals/ModalMain';
 import Modal from '../../../../../../components/Modal/Modal';
 
+
 export default function PerfilMainCompany(props) {
 
   const [dataSeleccionada, setDataSeleccionada] = useState({});

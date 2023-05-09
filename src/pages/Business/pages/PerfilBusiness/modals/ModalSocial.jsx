@@ -1,51 +1,36 @@
 import React, { useState } from 'react'
+import { Toast } from '../../../../../components/Alertas/Toast'
 import { InputBasic } from '../../../../../components/Inputs/InputBasic'
+import { actualizarEmpresa } from '../../../../../helpers/ApiEmpresa'
 
 const ModalSocial = (props) => {
     const [formData, setFormData] = useState({
-        empresa_sector: "",
-        empresa_ubicacion: "",
+        empresa_sector: props.dataUsuario.empresa_sector || "",
+        empresa_ubicacion: props.dataUsuario.empresa_ubicacion || "",
       })
     
       const validacionSeleccionado = Object.values(props.dataSeleccionada).length > 0 ? true : false
     
+      console.log(props.dataUsuario.id_empresa)
+
       const enviarData = (e) => {
         e.preventDefault()
-        // if(validacionSeleccionado) {
-        //   actualizarEducacion(educacionSeleccionada?.id_educacion ,formData).then((res) => {
-        //     console.log(res)
-        //     if (res.status == true) {
-        //       Toast.fire({
-        //         icon: 'success',
-        //         title: 'Educación actualizada correctamente!'
-        //       })
-        //       handleRecargarTabla()
+          actualizarEmpresa(props.dataUsuario.id_empresa ,formData).then((res) => {
+            console.log(res)
+            if (res.status == true) {
+              Toast.fire({
+                icon: 'success',
+                title: 'Empresa actualizada correctamente!'
+              })
+              props.handleRecargarTabla()
               props.handleCloseModal()
-        //     } else {
-        //       Toast.fire({
-        //         icon: 'error',
-        //         title: 'Ocurrió un error al actualizada la educación'
-        //       })
-        //     }
-        //   })
-        // } else {
-        //   crearEducacion(formData).then((res) => {
-        //     console.log(res)
-        //     if (res.status == true) {
-        //       Toast.fire({
-        //         icon: 'success',
-        //         title: 'Educación creada correctamente!'
-        //       })
-        //       handleRecargarTabla()
-        //       handleCloseModal()
-        //     } else {
-        //       Toast.fire({
-        //         icon: 'error',
-        //         title: 'Ocurrió un error al crear la educación'
-        //       })
-        //     }
-        //   })
-        // }
+            } else {
+              Toast.fire({
+                icon: 'error',
+                title: 'Ocurrió un error al actualizar la empresa'
+              })
+            }
+          })
       }
     
       const handleChange = (e) => {
@@ -90,11 +75,6 @@ const ModalSocial = (props) => {
     <div className='w-[52rem] p-8 pt-4 flex flex-col gap-y-2'>
       <div className='flex justify-between items-center'>
         <span className='py-2 text-lg font-medium'>Editar información adicional</span>
-        {/* {validacionSeleccionado && (
-          <span onClick={eliminar} className='cursor-pointer'>
-            <img src={removeIcon} alt="" />
-          </span>
-        )} */}
       </div>
       <form onSubmit={enviarData} action="" className='grid grid-cols-2 gap-4'>
           <InputBasic

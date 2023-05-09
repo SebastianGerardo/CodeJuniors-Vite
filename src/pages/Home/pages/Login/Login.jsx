@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { LoginDesarrollador } from "../../../../helpers/ApiUsuario";
 import { RaceBy } from "@uiball/loaders";
 import { AnimatePresence, motion } from 'framer-motion'
+import { Toast } from "../../../../components/Alertas/Toast";
 
 
 const Login = () => {
@@ -29,6 +30,11 @@ const Login = () => {
       if (res.status == 200) {
         localStorage.setItem("token", res.token);
         navigate("/developer", { replace: true, state: { logged: true } });
+      } else {
+        Toast.fire({
+          icon: "error",
+          title: "Datos incorrectos",
+        })
       }
     });
   };
