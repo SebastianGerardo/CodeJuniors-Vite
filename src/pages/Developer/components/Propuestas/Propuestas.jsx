@@ -11,6 +11,7 @@ const Propuesta = (props) => {
 
     const fetchEdu = () => {
         setPro(props.business);
+        console.log(props.business)
     }
 
     useEffect(()=>{
